@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'); 
+
+body {
+
+background-color: #131313;
+
+}
+
+h1 {
+
+color: white;
+font-family: "roboto";
+
+}
+
+.media-picture {
+
+width: 100%;
+height: 400px;
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa4FwF3EGS1ir0Lg2mK8zWd2I-4QajDKLYgA&usqp=CAU");
+background-repeat: no-repeat;
+}
+

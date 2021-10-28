@@ -1,0 +1,37 @@
+/* * {
+
+color:cadetblue;//editar tudo de uma vez
+
+} */
+
+.main-title {
+
+color:#78ff1e;
+font-size: 40px;
+
+}
+
+.main-subtitle {
+
+color: firebrick;
+
+}
+
+.post {
+
+background-color: brown;
+font-size: 32px;
+
+}
+
+.post h1 {
+
+color: red;
+
+}
+
+/* #firstPostTitle {
+
+font-size: 72px;
+
+} */
