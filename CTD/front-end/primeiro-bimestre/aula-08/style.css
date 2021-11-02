@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+body{
+    background-color: #131313;
+}
+
+h1{
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.media-picture{
+    height: 400px;
+    background-image: url("https://exame.com/wp-content/uploads/2019/04/20190403054920_1200_675.jpg?quality=70&strip=info&resize=680,453");
+    background-size: cover;
+    background-position: center;
+}
+
+.review-score{
+    color: white;
+    background-color: #e6bd09;
+    padding: 12px;
+}
+
+h2{
+    color: steelblue;
+}
+
+p{
+    color: #bdbdbd;
+}
+
+a{
+    color: yellow;
+}
+
