@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div{
+    background-image: url(https://addons-media.operacdn.com/media/CACHE/images/themes/95/78195/1.0-rev1/images/f1b54fe9-e138-44e6-929b-182bb1e82a68/e692a2c2fe07202eda545c69833230bd.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1280px;
+    height: 720px;
+    padding: 24px;
+    border: 2px salmon solid;
+    box-sizing: border-box;
+}
+
+button{
+    height: 120px;
+    width: 240px;
+    padding: 24px;
+    margin-top: 420px;
+    border: 2px salmon solid;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+body{
+    text-align: center;
+}
