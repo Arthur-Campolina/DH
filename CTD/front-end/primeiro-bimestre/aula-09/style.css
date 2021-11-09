@@ -1,0 +1,46 @@
+body {
+
+    width: 100%;
+    height: 100%;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ6xoiWnYiJlFdXiRDuswgrKgoRUUGX9vgIw&usqp=CAU);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    color: blue;
+}
+
+.anabolizante {
+
+    width: 24px 48px;
+    color: black;
+    border-radius: 6px;
+
+}
+.celular {
+
+    width: 24px 48px;
+    color: black;
+    border-radius: 6px;
+}
+
+.fogao{
+    width: 24px 48px;
+    color: black;
+    border-radius: 6px;
+}
+
+.geladeira{
+
+    width: 24px 48px;
+    color: black;
+    border-radius: 6px;
+}
+
+.suplemento{
+    width: 24px 48px;
+    color: black;
+    border-radius: 6px;
+}

@@ -1,4 +1,4 @@
-let altura = 1.8;
+let altura = 2.2;
 
 //EXERCÍCIO 1
 if (altura >= 1.4 && altura <= 2 || altura <= 1.4 && altura >= 1.2) {
@@ -13,5 +13,5 @@ if (altura >= 1.4 && altura <= 2) {
 } else if (altura <= 1.4 && altura >= 1.2){
     console.log("Acesso autorizado somente com acompanhante!")
 } else {
-    console.log("acesso negado!");
+    console.log("Acesso negado!");
 }
