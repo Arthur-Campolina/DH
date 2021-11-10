@@ -7,12 +7,12 @@ let carne ="carne";
 let tempoCarne = 15;
 let feijao = "feijão";
 let tempoFeijao = 12;
-let brigadeiro = "brigadeiro"
+let brigadeiro = "brigadeiro";
 let tempoBrigadeiro = 8;
 
 //Valor Inserido Pelo Usuário
-let comida = "macarrão";
-let tempo = 24;
+let comida = "macarrao";
+let tempo = 8;
 
 //Programa
 if (comida == pipoca && tempo > tempoPipoca && tempo <= 2*tempoPipoca){
@@ -45,6 +45,8 @@ if (comida == pipoca && tempo > tempoPipoca && tempo <= 2*tempoPipoca){
     console.log("Kabumm!")
 } else if (comida ==brigadeiro && tempo >= 3*tempoBrigadeiro){
     console.log("Kabumm!")
+} else if (comida != brigadeiro && comida != feijao && comida != carne && comida != pipoca && comida != macarrao) {
+    console.log ("Prato Inexistente!")
 } else {
     console.log("Prato pronto, bom apetite!!!")
 }
