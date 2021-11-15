@@ -10,9 +10,15 @@
 <body>
     <img src="https://assets.turbologo.com/blog/pt/2019/11/19133547/gaming-logo-cover-958x575.jpg" alt="logo">
     <form action="/registro" method="post">
+        <label for="nome">Nome:</label>
         <input type="text" name="usuario">
-        <input type="password" name="senha">
-        <input type="email" name="email">
+        <label for="comentario">Deixe o seu comentário:</label>
+        <textarea name="comentario" id="comentario" cols="15" rows="5"></textarea>
+        <label>Escolha uma cor:</label>
+        <select name="color">
+            <option value="black">Preto</option>
+            <option value="white">Branco</option>
+        </select>
     </form>
     <div>
         <button>Enviar</button>
