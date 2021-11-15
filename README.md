@@ -1,3 +1,2 @@
 # DH
-Digital House
-Projetos feitos durante o curso CTD - DH
+Digital House - Projetos feitos durante o curso CTD - DH
