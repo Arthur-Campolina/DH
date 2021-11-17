@@ -9,22 +9,55 @@
 </head>
 <body>
     <img src="https://assets.turbologo.com/blog/pt/2019/11/19133547/gaming-logo-cover-958x575.jpg" alt="logo">
+        
     <form action="/registro" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" name="usuario">
-        <label for="comentario">Deixe o seu comentário:</label>
-        <textarea name="comentario" id="comentario" cols="15" rows="5"></textarea>
-        <label>Escolha uma cor:</label>
-        <select name="color">
-            <option value="black">Preto</option>
-            <option value="white">Branco</option>
+    <label for="nome">Nome:</label>
+        
+    <input type="text" name="usuario">
+    <label for="comentario">Deixe o seu comentário:</label>
+        
+    <textarea name="comentario" id="comentario" cols="15" rows="5"></textarea>
+    
+    <label>Escolha uma cor:</label>
+    <select name="color">
+        <option value="black">Preto</option>
+        <option value="white">Branco</option>
         </select>
     </form>
     <div>
         <button>Enviar</button>
         <button>Reset</button>
     </div>
+    <fieldset>
+    <legend>Tipo</legend>
+        
+        <input type="radio" name="person" id="pf" value="pessoaFisica" checked>
+        <label for="pf">Pessoa Física</label>
+ 
+        <input type="radio" name="person" id="pj" value="pessoaJuridica">
+        <label for="pj">Pessoa Jurídica</label>
+
+    </fieldset>
+  
+    <fieldset>
+    <legend>Complemento</legend>
+
+        <input type="checkbox" name="options" id="firstOption">
+        <label for="firstOption">Opção 1</label>
+        <input type="checkbox" name="options" id="secondOption">
+        <label for="secondOption">Opção 2</label>
+        <input type="checkbox" name="options" id="thirdOption">
+        <label for="thirdOption">Opção 3</label>
     
+    </fieldset>
+
+    <fieldset>
     
+        <legend>Data</legend>
+        <label for="birthDate">Data de Nascimento</label>
+        <input type="date" name="birthDate" id="birthDate">
+
+    
+    </fieldset>
 </body>
 </html>
