@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+.titulo {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input-name {
+    border: none;
+    padding: 10px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 12px;
+    transition: .2s;
+}
+
+.input-name:hover {
+    background-color: rgb(175, 175, 175);
+}
+
+.input-name:focus {
+    padding: 20px;
+    border-radius: 24px;   
+}
