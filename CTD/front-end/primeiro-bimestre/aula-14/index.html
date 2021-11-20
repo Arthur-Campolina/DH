@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,55 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <h1>Dev´s Doces</h1>
     <fieldset>
         <LEgend>Dados pessoais</LEgend>
         <form action="/registro" method="post"></form>
-
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname"><br>
-            <label for="birthDate">Birthday</label><br>
-            <input type="date" name="birthDate" id="birthDate"><br>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="birthDate">Birthday</label><br>
+        <input type="date" name="birthDate" id="birthDate"><br>
         </form>
     </fieldset>
+
+    <fieldset>
+        <legend>Doces</legend>
+        <input class="checkbox" type="checkbox" id="brigadeiro" name="brigadeiro" value="Brigadeiro">
+        <label for="brigadeiro">Brigadeiro</label><br>
+        <input class="checkbox" type="checkbox" id="pudim" name="pudim" value="Pudim">
+        <label for="pudim">Pudim</label><br>
+        <input class="checkbox" type="checkbox" id="mousse" name="mousse" value="Mousse">
+        <label for="mousse">Mousse</label><br>
+    </fieldset>
     
+    <fieldset>
+        <legend>Quantidade</legend>
+        <input class="radio" type="radio" id="qtd1" name="qtd1" value="qtd1">
+        <label for="qtd1">Quantidade 1</label><br>  
+        <input class="radio" type="radio" id="qtd2" name="qtd2" value="qtd2">
+        <label for="qtd2">Quantidade 2</label><br>
+        <input class="radio" type="radio" id="qtd3" name="qtd3" value="qtd3">
+        <label for="qtd3">Quantidade 3</label><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Data de entrega:</legend>
+        <label for="data">Data:</label>
+        <input type="date" id="dataEntrega" name="dataEntrega">
+    </fieldset>
+
+    <div>
+        <button class="submit">Enviar Pedido</button>
+    </div>
+
+    <footer>
+        <p>WhatsApp</p>
+        <p>Instagram</p>
+    </footer>
 </body>
+
 </html>
