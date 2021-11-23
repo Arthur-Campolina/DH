@@ -1,0 +1,41 @@
+span {
+    font-size: 150px;
+    text-align: center;
+    padding: 50px;
+    display: block;
+    background-color: aquamarine;
+}
+
+.bola{
+
+    animation-name: bola; 
+    animation-duration: 2s;
+    
+}
+
+@keyframes bola {
+
+    0%{
+        translate: (-100,100);
+
+    }
+
+    50%{
+        translate: (100,200)
+    }
+    100%{
+        translate: (200,300);
+    }
+       
+}
+
+.smile{
+
+    animation-name: smile; 
+    
+}
+
+.et {
+    
+    animation-name: et;
+}
