@@ -1,0 +1,50 @@
+*{    
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Open Sans', sans-serif;
+    outline:0;
+}
+
+body{
+    background-color: black;
+}
+.titulo{
+    text-align: center;
+    padding-top: 15px;
+    font-size: 35px;
+}
+h1{
+    color: white;
+    text-align:left;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    j
+}
+
+h2 {
+    color: white;
+    text-align: :left;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.videos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.video{
+    width: 400px;
+    
+}
+
+.video img{
+    width: 100%;
+    height: 200px;
+}
