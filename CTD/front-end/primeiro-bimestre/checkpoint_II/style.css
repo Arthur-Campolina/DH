@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+form {
+    padding: 20px;
+}
+label, input,textarea,select {
+    color: azure;
+    display:block;
+    margin-bottom:10px;
+    border-radius:5px;
+    font-family: roboto;
+    font-weight: bold;
+}
+
+.checkbox {
+    display: flex;
+    gap: 15px;
+}
+fieldset {
+    border: none;
+    font-family: roboto;
+}
+button:hover {
+    background-color: brown;
+}
+button {
+    width: 100px;
+    padding: 10px;
+}
+legend {
+    padding-bottom: 10px;
+}
+input, option {
+
+    color: rgb(48, 189, 29);
+    background-color: rgb(221, 203, 203);
+    border: none;
+    padding: 6px 24px;
+    border-radius: 12px;
+    transition: 0.4s;
+    font-weight: bold;
+    outline: 0;
+}
+
+button{
+    color: rgb(15, 6, 6);
+    background-color: rgb(202, 172, 172);
+    border: none;
+    padding: 6px 24px;
+    border-radius: 12px;
+    transition: 0.4s;
+    font-weight: bold;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form method="#">
+        <div class="form">
+
+            <label for="nome">Nome Completo</label>
+            <input type="text"  name="nome" id="nome">
+
+            <label for="email">E-mail para Contato</label>
+            <input type="email"  name="email" id="email">
+
+            <label for="telefone">Telefone</label>
+            <input type="text"  name="telefone" id="telefone">
+
+            <label for="data_nascimento">Data Nascimento</label>
+            <input type="data"  name="data_nascimento" id="data_nascimento">
+        </div>
+        <fieldset>
+            <legend>Escolha um ponto de interesse da sua cidade:</legend>
+            <select name="pontoInteresse" id="pontoInteresse">
+                <option value="">Selecione</option>
+                <option value="ponto1">Praias</option>
+                <option value="ponto1">Mercado Público</option>
+                <option value="ponto1">Lagoa da Conceição</option>
+            </select>
+        </fieldset>
+        <fieldset class="checkbox">
+            <input type="checkbox" id="turista" name="turista">
+            <label for="turista">Turista</label>
+            <input type="checkbox" id="residente" name="residente">
+            <label for="residente">Residente</label>
+            <input type="checkbox" id="estudante" name="estudante">
+            <label for="turista">Estudante</label>
+            <label for="outros">Outros</label>
+            <input type="outros" id="outros">
+        </fieldset>
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpar</button>
+    </form>
+</body>
+</html>
