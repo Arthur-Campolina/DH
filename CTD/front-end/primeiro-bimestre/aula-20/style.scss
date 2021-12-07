@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin main-title {
+
+    color: red;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1{
+    @include main-title();
+}
+
+.main-header{
+
+    background-color: red;
+    padding: 24px;
+    
+    img {
+
+        width: 100px;
+
+    }
+
+    ul {
+
+        background-color: blue;
+
+    }
+
+    li {
+
+        padding: 24px;
+
+    }
+}
