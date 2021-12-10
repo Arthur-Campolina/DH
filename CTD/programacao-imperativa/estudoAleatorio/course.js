@@ -1,4 +1,4 @@
-const students = require('./students')
+const students = require('./avaliacaoFinal')
 
 const course = {
     name: "Programação Imperativa",
@@ -8,3 +8,4 @@ const course = {
 }
 
 module.exports = course;
+console.log(course)
