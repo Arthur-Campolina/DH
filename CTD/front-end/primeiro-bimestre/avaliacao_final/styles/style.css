@@ -1,0 +1,138 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+
+/*Estilos Cabeçalho*/
+.cabecalho img{
+    width: 153px;
+    height: 45px;
+    margin-left:40px;
+}
+
+.links-cabecalho a{
+    padding:13px;
+    text-decoration: none;
+    color:black
+}
+
+#home{
+    color:red;
+    font-weight: bold;
+}
+.cabecalho{
+   margin-top:20px;
+} 
+
+.banner{
+    background-image: url("../imagens/banner.jpg");
+    background-size: cover;
+    height: 610px;
+    width:100%; 
+    margin-top:61px; 
+    
+}
+.fundo{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 610px;
+    width:100%;
+    
+}
+.banner h1{
+    color:red;
+}
+.banner h2{
+    color:white;
+    font-size:small;   
+}
+.banner button{
+    width:300px;
+    color:white;
+}
+
+/*Estilo Detalhe Filmes */
+.banner-detalhe-filme img{
+    
+    background-size:cover;
+    height: 350px;
+    width:100%;  
+    
+}
+.stars{
+    margin-bottom:20px;
+}
+
+.stars .bi{
+    color:#dbd814;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.corpo-detalhe{
+    padding:70px;
+}
+.corpo-detalhe h1{
+   font-size:70px;
+   font-weight: bold;
+}
+
+.criacao-idem h1,h2{
+    font-size:20px;
+    font-weight: bold;
+}
+
+.criacao-nome p{
+    color:#1aa3ff;
+    font-size:17px;
+}
+
+.trailer-filme iframe{
+    width: 100%;
+    height: 600px;
+    border-radius:20px;
+    margin-top:30px;
+}
+
+/* Estilo Corpo Index Principal */
+.corpo-index{
+    margin-bottom:30px;
+}
+
+.cards-filmes{
+    margin-bottom:30px;
+}
+.card-body p {
+margin-bottom:15px;
+}
+
+/*Estilo rodapé */
+.rodape {
+    height: 30%;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+.link-rodape {
+    padding: 5px;
+}
+.linkedin {
+    width: 5px;
+    height: 5px;
+}
+.texto-rodape {
+    background-color: black;
+    color: rgba(255, 255, 255, 0.801);
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+html{
+    scroll-behavior: smooth;
+}
