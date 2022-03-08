@@ -2,7 +2,7 @@ const cards = document.querySelectorAll(".item");
 const parent = document.querySelector(".container")
 
 cards.forEach(card => {
-    parent.removeChild(card)
+    card.remove()
 });
 
 const insertCard = (parent, card) => {
