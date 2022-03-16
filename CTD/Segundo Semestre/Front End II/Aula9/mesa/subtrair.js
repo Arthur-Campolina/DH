@@ -1,3 +1,3 @@
-function subtracao(a,b) {
+function subtrair(a,b) {
   return a-b;
 }
