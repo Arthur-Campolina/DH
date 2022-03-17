@@ -1,0 +1,1 @@
+const calcular = (operacao, a, b) => operacao(a, b);
