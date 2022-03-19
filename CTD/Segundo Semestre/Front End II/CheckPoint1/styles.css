@@ -1,0 +1,48 @@
+body{
+    background-image: url("https://th.bing.com/th/id/OIP.fgnMrB_kD1FeLkpOWdHfNQHaHa?pid=ImgDet&rs=1");
+    
+}
+
+header{
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+header a{
+    color: white;
+    font-size: 100px;
+}
+
+navbar{
+    background-color: lightsteelblue;
+}
+
+div{
+    margin-bottom: 20px;
+}
+
+div img{
+    height: 300px;
+}
+
+div .col{
+    background-color: rgb(151, 151, 151);
+    text-align: center;
+    padding: 15px;
+
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+p{
+    line-height: 5px;
+}
+
+
+.descricao{
+    line-height: 20px;
+}
+
+footer{
+    background-color:  #f9f9fb
+}
