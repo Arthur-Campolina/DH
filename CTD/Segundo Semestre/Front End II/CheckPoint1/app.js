@@ -82,7 +82,6 @@ function montarTemplate(url, nome, carroceria, motor, potencia, descricao) {
                 <p>Motor: ${motor} Traseiro,1.3l, 8v</p>
                 <p>Potência: ${potencia}</p>
                 <p class="descricao">${descricao}</p>
-
     </div>
     `;
 
