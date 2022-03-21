@@ -1,167 +1,170 @@
 <!DOCTYPE html>
 <html lang="PT">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Importação Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 
     <!-- Importação Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 
     <title>Cadastro de carros</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand">Carroflix</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page"></a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Carroflix</a>
+          <!-- Botão para acionar modal -->
+          <button
+            type="button "
+            class="btn btn-primary w-25 me-3"
+            data-toggle="modal"
+            data-target="#myModal"
+          >
+            Cadastrar novo veículo
+          </button>
+        </div>
+      </nav>
 
-                    </div>
-                </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Cadastrar veículo
+              </h5>
+
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Fechar"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div class="modal-body">
+              <label for="recipient-name" class="col-form-label">Nome</label>
+              <input
+                type="text"
+                class="form-control nome"
+                id="recipient-name"
+              />
 
-            <!-- Botão para acionar modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
-                Cadastrar novo veículo
-            </button>
+              <label for="recipient-name" class="col-form-label"
+                >Url da Imagem:</label
+              >
+              <input type="url" class="form-control url" id="recipient-name" />
 
-            <!-- Modal -->
-            <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Cadastrar veículo</h5>
+              <label for="recipient-name" class="col-form-label" id="carroceria"
+                >Carroceria:</label
+              >
+              <input
+                type="text"
+                class="form-control carroceria"
+                id="recipient-name"
+              />
 
+              <label for="recipient-name" class="col-form-label" id="motor"
+                >Motor:</label
+              >
+              <input
+                type="text"
+                class="form-control motor"
+                id="recipient-name"
+              />
 
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <label for="recipient-name" class="col-form-label">Nome</label>
-                            <input type="text" class="form-control nome" id="recipient-name">
+              <label for="recipient-name" class="col-form-label" id="potencia"
+                >Potência:</label
+              >
+              <input
+                type="text"
+                class="form-control potencia"
+                id="recipient-name"
+              />
 
-                            <label for="recipient-name" class="col-form-label">Url da Imagem:</label>
-                            <input type="text" class="form-control url" id="recipient-name">
-
-                            <label for="recipient-name" class="col-form-label" id="carroceria">Carroceria:</label>
-                            <input type="text" class="form-control carroceria" id="recipient-name">
-
-                            <label for="recipient-name" class="col-form-label" id="motor">Motor:</label>
-                            <input type="text" class="form-control motor" id="recipient-name">
-
-                            <label for="recipient-name" class="col-form-label" id="potencia">Potência:</label>
-                            <input type="text" class="form-control potencia" id="recipient-name">
-
-                            <label for="message-text" class="col-form-label" id="descricao">Descrição do
-                                veículo:</label>
-                            <textarea class="form-control descricaoVeiculo" id="message-text"></textarea>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" onclick="cadastro()" class="btn btn-primary">Cadastrar </button>
-                        </div>
-                    </div>
-                </div>
+              <label for="message-text" class="col-form-label" id="descricao"
+                >Descrição do veículo:</label
+              >
+              <textarea
+                class="form-control descricaoVeiculo"
+                id="message-text"
+              ></textarea>
             </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Fechar
+              </button>
+              <button
+                type="button"
+                onclick="cadastro()"
+                data-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Cadastrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <div class="container">
-        <div class="row pai">
-            <div class="col">
-                <img src="images/fusca-rebaixado.png" alt="Fusca" width="600" height="400">
-                <h1>Fusca</h1>
-
-                <p>Carroceria: Duas portas</p>
-                <p>Motor: Traseiro,1.3l, 8v</p>
-                <p>Potência: 46cv</p>
-                <p class="descricao">O Volkswagen Typ 1, popularmente conhecido como Fusca (no Brasil) ou
-                    Carocha (em Portugal), foi o primeiro modelo de automóvel fabricado pela companhia alemã Volkswagen,
-                    sendo produzido entre 1938 e 2003.
-                </p>
-
-            </div>
-
-            <div class="col">
-                <img src="images/boat-tail.png" alt="Rolls Royce" width="600" height="400">
-                <h1>Rolls Royce Boat Tail</h1>
-
-                <p>Carroceria: Duas portas</p>
-                <p>Motor: Traseiro,1.3l, 8v</p>
-                <p>Potência: 46cv</p>
-                <p class="descricao">Boat Tail - O Rolls-Royce Boat Tail é um carro de luxo de médio porte construído
-                    pela Rolls-Royce Motor Cars . É o carro novo legal de rua mais caro do mundo, com US$ 28 milhões.
-                </p>
-            </div>
-
-            <div class="col">
-                <img src="images/honda.png" alt="Civic" width="600" height="400">
-                <h1>Honda Civic</h1>
-
-                <p>Carroceria: Duas portas</p>
-                <p>Motor: Dianteiro, 1.6l, 16v</p>
-                <p>Potência: 125cv</p>
-                <p class="descricao">Honda Civic: Último ano da 5ª Geração do Civic, lançada em 1992. Veio para o
-                    Brasil no mesmo ano, e logo conquistou os apaixonados pela marca. Esta Honda Civic EXS de 1995 é um
-                    cupê com câmbio manual. Uma cor muito legal para carros esportivos: branco ártico. Poucas
-                    versões dessa geração vinham com a tecnologia VTEC, um sistema de comando variável de válvulas
-                    que aumenta o torque do motor em baixas e altas rotações. Este, tem. E a partir dessa geração do
-                    Civic a montadora trouxe inovações que fizeram deste carro resistente ao tempo, sendo confiável
-                    para rodar aonde for preciso até hoje.
-                </p>
-            </div>
-
-            <div class="col">
-                <img src="images/supra.png" alt="Supra" width="600" height="400">
-                <h1>Supra</h1>
-
-                <p>Carroceria: Duas portas</p>
-                <p>Motor: Dianteiro, 3.0l, 24v</p>
-                <p>Potencia: 330cv</p>
-                <p class="descricao">Toyota Supra - Se um carro esportivo japonês pudesse definir uma década, teria que
-                    vir da Toyota. Seu carro-chefe da década de 1990 foi o Toyota Supra. O que começou como um nível de
-                    acabamento em 1978 evoluiu ao longo de 4 gerações para se tornar seu próprio modelo.
-                </p>
-            </div>
-        </div>
+      <div class="row pai"></div>
     </div>
 
     <script src="app.js"></script>
 
-
     <footer class="page-footer font-small blue">
-        <div class="footer-copyright text-center py-3">Digital House <br>
-            <a href="https://github.com/arthur-campolina" target="_blank">Arthur Campolina</a><br>
-            <a href="https://github.com/brunojoseln" target="_blank">Bruno Neves</a><br>
-            <a href="https://github.com/Thelfdelgado" target="_blank">Luiz Delgado</a>
-        </div>
+      <div class="footer-copyright text-center py-3">
+        Digital House <br />
+        <a href="https://github.com/arthur-campolina" target="_blank"
+          >Arthur Campolina</a
+        ><br />
+        <a href="https://github.com/brunojoseln" target="_blank">Bruno Neves</a
+        ><br />
+        <a href="https://github.com/Thelfdelgado" target="_blank"
+          >Luiz Delgado</a
+        >
+      </div>
     </footer>
-</body>
+  </body>
 </html>

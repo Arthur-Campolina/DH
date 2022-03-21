@@ -25,7 +25,7 @@ div img{
     height: 300px;
 }
 
-div .col{
+.carros-card{
     background-color: rgb(151, 151, 151);
     text-align: center;
     padding: 15px;
