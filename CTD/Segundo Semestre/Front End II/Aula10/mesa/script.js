@@ -2,7 +2,13 @@
 // Quando ocorrer entrada de dados nos dois campos de texto e o botão submit for pressionado, imprima no html três saídas utilizando os métodos: trim(), toUpperCase(), toLowerCase(). Imprima também mais uma saída usando o concat() do nome com o sobrenome.
 // Por fim, para a última saída você deve utilizar o replace(), substituindo todas as letras “a” por “@” e letras “e” por “3”.
 
-let nome = document.getElementById('nome').value;
-let sobrenome = document.getElementById('sobrenome').value;
+let nome = document.getElementById("nome");
+let sobrenome = document.getElementById("sobrenome");
 
-console.log(nome);
+let botaoSalvar = document.getElementById("salvar");
+
+botaoSalvar.addEventListener("click", function(evento){
+    evento.preventDefault();
+
+    console.log((nome.value.trim().toLowerCase().concat(' ', sobrenome.value.toUpperCase())).replace(/a/gi, "@").replace(/e/gi, "3"));
+})
