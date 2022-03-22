@@ -1,0 +1,5 @@
+exemplo: https://github.dev/nidiodolfini/InfraII/tree/main/Docker/Dockerpython
+
+comandos: 
+    - docker image build . -t pyimage
+    - docker container run -it --name pycon pyimage bash
