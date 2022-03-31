@@ -77,24 +77,23 @@ let consultandoBaseDeDados = new Promise((resolve, reject) => {
 // Aqui realizamos uma consulta da promessa, aguardando sua resposta assíncrona
 consultandoBaseDeDados
     .then((resposta) => {
-        // console.log(resposta);
-        renderizarDadosUsuario(resposta)
+        console.log(renderizarDadosUsuario(resposta.resultado[0]));
+        return renderizarDadosUsuario(resposta.resultado[0])
 
-    }).then(
-
-    ).catch((err) => {
+    }).catch((err) => {
         console.log(err);
     });
 
-function renderizarDadosUsuario(resposta) {
+function renderizarDadosUsuario(dados) {
+       
+    let cartao = document.querySelector('.tarjeta');
 
-    let dadosObjeto = JSON.parse(resposta);
-    let fotoUsuario = dadosObjeto.genero
-    // let nomeUsuario = dados.nome
-    // let emailUsuario = dados.email
+    let novaDiv = `
+        <img class="img-foto" src="${dados.imagem.grande}"></img>
+        <h1>${dados.nome.titulo} ${dados.nome.primeiro} ${dados.nome.utlimo}</h1>   
+        `;
 
-    console.log(`foto: ${fotoUsuario}`);
-
+    cartao.innerHTML = novaDiv;
     /* -------------------------------- TAREFAS -------------------------------- */
     // Aqui  devem desenvolver uma função que é exibida na tela:
     // a foto, o nome completo do usuário e seu e-mail.
