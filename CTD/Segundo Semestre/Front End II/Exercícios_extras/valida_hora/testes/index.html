@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <title>Valida Hora</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-xl-3">
+        <div class="input-group input-group-outline my-3 is-filled">
+          <label class="form-label">Entrada1</label>
+          <input
+            min="00:01"
+            id="entrada1"
+            type="time"
+            name="entrada"
+            class="form-control"
+            required="required"
+            step="0"
+            value=""
+            onchange="validaEntrada1()"
+          />
+          <div class="invalid-feedback d-none" id="validaEntrada1">
+            Hora inválida
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3">
+        <div class="input-group input-group-outline my-3 is-filled">
+          <label class="form-label">Saida1</label>
+          <input
+            id="almoco_inicio"
+            type="time"
+            name="almoco_inicio"
+            class="form-control"
+            step="0"
+            value=""
+            disabled
+            onchange="validaSaida1()"
+          />
+        </div>
+        <div class="invalid-feedback d-none" id="validaSaida1">
+          Hora inválida
+        </div>
+      </div>
+      <div class="col-xl-3">
+        <div class="input-group input-group-outline my-3 is-filled">
+          <label class="form-label">Entrada2</label>
+          <input
+            id="almoco_fim"
+            type="time"
+            name="almoco_fim"
+            class="form-control"
+            step="0"
+            value=""
+            disabled
+            onchange="validaEntrada2()"
+          />
+        </div>
+        <div class="invalid-feedback d-none" id="validaEntrada2">
+          Hora inválida
+        </div>
+      </div>
+      <div class="col-xl-3">
+        <div class="input-group input-group-outline my-3 is-filled">
+          <label class="form-label">Saida2</label>
+          <input
+            max="23:59"
+            id="saida"
+            type="time"
+            name="saida"
+            class="form-control"
+            step="0"
+            value=""
+            disabled
+            onchange="validaSaida2()"
+          />
+        </div>
+        <div class="invalid-feedback d-none" id="validaSaida2">
+          Hora inválida
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+      function validaEntrada1() {
+        let validaEntrada = document.querySelector("#validaEntrada1");
+        let inputEntrada = document.querySelector('input[name="entrada"]');
+        let entrada = document.getElementById("entrada1").value;
+        let hora = parseInt(entrada.substring(0, 2));
+        let min = parseInt(entrada.substring(3));
+        let totalEmMinutos = hora * 60 + min;
+        let valida = 0;
+
+        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
+          inputEntrada.value
+        );
+
+        if (!isValid || totalEmMinutos === 0) {
+          validaEntrada.classList.remove("d-none");
+          validaEntrada.classList.add("d-block");
+          document.getElementById("entrada1").value = "";
+          valida = document.querySelector("#almoco_inicio").setAttribute("disabled", true);
+        } else {
+          validaEntrada.classList.add("d-none");
+          valida = document.querySelector("#almoco_inicio").removeAttribute("disabled");
+        }
+        return totalEmMinutos;
+      }
+
+      function validaSaida1() {
+        let validaSaida1 = document.querySelector("#validaSaida1");
+        let inputSaida1 = document.querySelector('input[name="almoco_inicio"]');
+        let almocoInicio = document.getElementById("almoco_inicio").value;
+        let hora = parseInt(almocoInicio.substring(0, 2));
+        let min = parseInt(almocoInicio.substring(3));
+        let totalEmMinutos = hora * 60 + min;
+        let valida = 0;
+
+        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
+          inputSaida1.value
+        );
+
+        if (!isValid || totalEmMinutos === 0 || totalEmMinutos <= validaEntrada1()) {
+          validaSaida1.classList.remove("d-none");
+          validaSaida1.classList.add("d-block");
+          document.getElementById("almoco_inicio").value = "";
+          valida = document.querySelector("#almoco_fim").setAttribute("disabled", true);
+        } else {
+          validaSaida1.classList.add("d-none");
+          valida = document.querySelector("#almoco_fim").removeAttribute("disabled");
+        }
+        return totalEmMinutos;
+      }
+
+      function validaEntrada2() {
+        let validaEntrada = document.querySelector("#validaEntrada2");
+        let inputEntrada = document.querySelector('input[name="almoco_fim"]');
+        let almocoFim = document.getElementById("almoco_fim").value;
+        let hora = parseInt(almocoFim.substring(0, 2));
+        let min = parseInt(almocoFim.substring(3));
+        let totalEmMinutos = hora * 60 + min;
+        let valida = 0;
+
+        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
+          inputEntrada.value
+        );
+
+        if (!isValid || totalEmMinutos === 0 || totalEmMinutos <= validaSaida1() || totalEmMinutos <= validaEntrada1()) {
+          validaEntrada.classList.remove("d-none");
+          validaEntrada.classList.add("d-block");
+          document.getElementById("almoco_fim").value = "";
+          valida = document.querySelector("#saida").setAttribute("disabled", true);
+        } else {
+          validaEntrada.classList.add("d-none");
+          valida = document.querySelector("#saida").removeAttribute("disabled");
+        }
+        return totalEmMinutos;
+      }
+
+      function validaSaida2() {
+        let validaSaida = document.querySelector("#validaSaida2");
+        let inputSaida1 = document.querySelector('input[name="saida"]');
+        let saida = document.getElementById("saida").value;
+        let hora = parseInt(saida.substring(0, 2));
+        let min = parseInt(saida.substring(3));
+        let totalEmMinutos = hora * 60 + min;
+        
+
+        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
+          inputSaida1.value
+        );
+
+        if (!isValid || totalEmMinutos === 0 || totalEmMinutos <= validaEntrada1() || totalEmMinutos <= validaSaida1() || totalEmMinutos <= validaEntrada2()) {
+          validaSaida.classList.remove("d-none");
+          validaSaida.classList.add("d-block");
+          document.getElementById("saida").value = "";
+        } else {
+          validaSaida.classList.add("d-none");
+        }
+        return totalEmMinutos;
+      }
+
+
+      // let valida = document.querySelector("#almoco_inicio");
+      //   if (validaEntrada1()) {
+      //     valida.disabled = false;
+      //   } else {
+      //     valida.disabled = true;
+      //   }
+
+      // //       let validaEntrada = document.querySelector("#validaEntrada");
+      //       let inputEntrada = document.querySelector("input=[name='entrada']");
+      //     var isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
+      //         inputEntrada.value
+      //     );
+
+      //     if (!isValid) {
+      //       validaEntrada.classList.remove("d-none");
+      //       validaEntrada.classList.add("d-block");
+      //     } else {
+      //       validaEntrada.classList.remove("d-block");
+      //       validaEntrada.classList.add("d-none");
+      //     }
+      //     return isValid;
+      //   }
+
+      //   function validaEntrada2() {
+      //       let validaEntrada = document.querySelector("#validaEntrada");
+      //       let inputEntrada = document.querySelector("input=[name='entrada']");
+      //     var isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
+      //         inputEntrada.value
+      //     );
+
+      //     if (!isValid) {
+      //       validaEntrada.classList.remove("d-none");
+      //       validaEntrada.classList.add("d-block");
+      //     } else {
+      //       validaEntrada.classList.remove("d-block");
+      //       validaEntrada.classList.add("d-none");
+      //     }
+      //     return isValid;
+      //   }
+
+      //   function validaSaida2() {
+      //       let validaEntrada = document.querySelector("#validaEntrada");
+      //       let inputEntrada = document.querySelector("input=[name='entrada']");
+      //     var isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
+      //         inputEntrada.value
+      //     );
+
+      //     if (!isValid) {
+      //       validaEntrada.classList.remove("d-none");
+      //       validaEntrada.classList.add("d-block");
+      //     } else {
+      //       validaEntrada.classList.remove("d-block");
+      //       validaEntrada.classList.add("d-none");
+      //     }
+      //     return isValid;
+      //   }
+
+      // let entrada = document.getElementById("entrada");
+      // entrada.addEventListener('change', function(event) {
+
+      //     console.log(event);
+
+      // })
+
+      //   let entradaTotal = 0;
+
+      //   console.log(entrada);
+      //   let entradaHoraEmMin = parseInt(entrada.substring(0, 2)) * 60;
+      //   let entradaMin = parseInt(entrada.substring(3));
+
+      // $(function () {
+      //   let entrada = $("#entrada").val();
+      //   let entradaTotal = 0;
+
+      //   console.log(entrada);
+      //   let entradaHoraEmMin = parseInt(entrada.substring(0, 2)) * 60;
+      //   let entradaMin = parseInt(entrada.substring(3));
+
+      //   if (entradaHoraEmMin !== 0 && entradaMin !== 0) {
+      //     entradaTotal = entradaHoraEmMin + entradaMin;
+      //     console.log(entradaTotal);
+      //   } else if (entradaMin === 0 && entradaHoraEmMin !== 0) {
+      //     entradaTotal = entradaHoraEmMin;
+      //   } else {
+      //     entradaTotal = entradaMin;
+      //   }
+
+      //   if (entradaTotal === 0) {
+      //     alert("Valor inválido 1");
+      //     $("#entrada").val(null);
+      //   }
+
+      //   if (entradaHoraEmMin === 0 && entradaMin === 0) {
+      //     alert("Valor inválido 1");
+      //     $("#entrada").val(null);
+      //   } else {
+      //     if (entradaHoraEmMin === null || entradaHoraEmMin === "") {
+      //       alert("Valor inválido 2 ");
+      //       $("#entrada").val(null);
+      //     }
+      //     if (entradaMin === null || (entradaMin === "" && entradaMin <= 0)) {
+      //       alert("Valor inválido 3");
+      //       $("#entrada").val(null);
+      //     }
+      //   }
+      // })
+      //   function entrada(entrada) {
+
+      //   function almocoInicio() {
+      //     let almocoInicio = $("#almoco_inicio").val();
+      //     let almocoInicioHoraEmMin = parseInt(almocoInicio.substring(0, 2)) * 60;
+      //     let almocoInicioMin = parseInt(almocoInicio.substring(3));
+      //     let almocoInicioTotal = almocoInicioHoraEmMin + almocoInicioMin;
+
+      //     if (
+      //       almocoInicioTotal == null ||
+      //       almocoInicioTotal == "" ||
+      //       almocoInicioTotal <= entrada()
+      //     ) {
+      //       alert("Valor inválido");
+      //       $("#almoco_inicio").val(null);
+      //     } else {
+      //       return almocoInicioTotal;
+      //     }
+      //   }
+
+      //   function almocoFim() {
+      //     let almocoFim = $("#almoco_fim").val();
+      //     let almocoFimHoraEmMin = parseInt(almocoFim.substring(0, 2)) * 60;
+      //     let almocoFimMin = parseInt(almocoFim.substring(3));
+      //     let almocoFimTotal = almocoFimHoraEmMin + almocoFimMin;
+
+      //     if (
+      //       almocoFimTotal == null ||
+      //       almocoFimTotal == "" ||
+      //       almocoFimTotal <= almocoInicio()
+      //     ) {
+      //       alert("Valor inválido");
+      //     } else {
+      //       return almocoFimTotal;
+      //     }
+      //   }
+
+      //   function saida() {
+      //     let saida = $("#saida").val();
+      //     let saidaHoraEmMin = parseInt(saida.substring(0, 2)) * 60;
+      //     let saidaMin = parseInt(saida.substring(3));
+      //     let saidaTotal = saidaHoraEmMin + saidaMin;
+
+      //     if (
+      //       saidaTotal == 0 ||
+      //       saidaTotal == null ||
+      //       saidaTotal == "" ||
+      //       saidaTotal <= almocoFim()
+      //     ) {
+      //       console.log("Valor inválido");
+      //     } else {
+      //       return saidaTotal;
+      //     }
+      //   }
+    </script>
+  </body>
+</html>

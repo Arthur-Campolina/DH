@@ -1,0 +1,16 @@
+campo 1
+ - min 00:01 (ok)
+ - max do campo 1 tem que ser o min do próximo campo e subsequente
+ - min do próximo campo tem que ser o max do anterior/atual e subsequente
+
+campo 4
+ - max 11:59 (ok)
+
+campo 2, 3 e 4 
+ - nao podem ser menor que campo 1 e subsequente
+ - disabled se não preencher o campo 1 e subsequente 
+
+
+jquery e moment
+
+
