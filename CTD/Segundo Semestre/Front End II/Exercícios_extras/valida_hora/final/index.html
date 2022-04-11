@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./jquery.mask.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,19 +25,14 @@
         <div class="input-group input-group-outline my-3 is-filled">
           <label class="form-label">Entrada1</label>
           <input
-            min="00:01"
             id="entrada1"
-            type="time"
+            type="text"
             name="entrada"
-            class="form-control"
+            class="form-control entrada1"
             required="required"
-            step="0"
             value=""
-            onchange="validaEntrada1()"
           />
-          <div class="invalid-feedback d-none" id="validaEntrada1">
-            Hora inválida
-          </div>
+          <div class="invalid-feedback d-none" id="validaEntrada1"></div>
         </div>
       </div>
       <div class="col-xl-3">
@@ -44,13 +40,11 @@
           <label class="form-label">Saida1</label>
           <input
             id="almoco_inicio"
-            type="time"
+            type="text"
             name="almoco_inicio"
-            class="form-control"
-            step="0"
+            class="form-control saida1"
             value=""
             disabled
-            onchange="validaSaida1()"
           />
         </div>
         <div class="invalid-feedback d-none" id="validaSaida1">
@@ -62,13 +56,11 @@
           <label class="form-label">Entrada2</label>
           <input
             id="almoco_fim"
-            type="time"
+            type="text"
             name="almoco_fim"
-            class="form-control"
-            step="0"
+            class="form-control entrada2"
             value=""
             disabled
-            onchange="validaEntrada2()"
           />
         </div>
         <div class="invalid-feedback d-none" id="validaEntrada2">
@@ -79,15 +71,12 @@
         <div class="input-group input-group-outline my-3 is-filled">
           <label class="form-label">Saida2</label>
           <input
-            max="23:59"
             id="saida"
-            type="time"
+            type="text"
             name="saida"
-            class="form-control"
-            step="0"
+            class="form-control saida"
             value=""
             disabled
-            onchange="validaSaida2()"
           />
         </div>
         <div class="invalid-feedback d-none" id="validaSaida2">
@@ -97,112 +86,42 @@
     </div>
 
     <script>
+      $(function () {
+        $(".entrada1").mask("00:00", {
+          placeholder: "--:--",
+          onChange: function (horaC, event, currentField, options) {
+            if (validaHora(horaC)) {
+              $("#almoco_inicio").attr("disabled", false);
+              $("#validaEntrada1").addClass("d-none").removeClass("d-block");
+            } else {
+              if (horaC.length === 5 || horaC.length === 0) {
+                currentField.val("");
+                $("#validaEntrada1")
+                  .addClass("d-block")
+                  .removeClass("d-none")
+                  .text("Hora Inválida!");
+                $("#almoco_inicio").attr("disabled", true);
+              }
+            }
+          },
+        });
+      });
 
-      function validaEntrada1() {
-        let validaEntrada = document.querySelector("#validaEntrada1");
-        let inputEntrada = document.querySelector('input[name="entrada"]');
-        let entrada = document.getElementById("entrada1").value;
-        let hora = parseInt(entrada.substring(0, 2));
-        let min = parseInt(entrada.substring(3));
-        let totalEmMinutos = hora * 60 + min;
-        let valida = 0;
-
-        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
-          inputEntrada.value
-        );
-
-        if (!isValid || totalEmMinutos === 0) {
-          validaEntrada.classList.remove("d-none");
-          validaEntrada.classList.add("d-block");
-          document.getElementById("entrada1").value = "";
-          valida = document.querySelector("#almoco_inicio").setAttribute("disabled", true);
-          document.getElementById("almoco_inicio").value = "";
-          valida1 = document.querySelector("#almoco_fim").setAttribute("disabled", true);
-          document.getElementById("almoco_fim").value = "";
-          valida2 = document.querySelector("#saida").setAttribute("disabled", true);
-          document.getElementById("saida").value = "";
-        } else {
-          validaEntrada.classList.add("d-none");
-          valida = document.querySelector("#almoco_inicio").removeAttribute("disabled");
+      function validaHora(stringHora) {
+        if (stringHora.length === 5) {
+          console.log(stringHora);
+          let hora = parseInt(stringHora.substring(0, 2));
+          let min = parseInt(stringHora.substring(3));
+          let totalEmMinutos = hora * 60 + min;
+          return (
+            hora >= 0 &&
+            hora <= 23 &&
+            min >= 0 &&
+            min < 60 &&
+            totalEmMinutos !== 0
+          );
         }
-        return totalEmMinutos;
-      }
-
-      function validaSaida1() {
-        let validaSaida1 = document.querySelector("#validaSaida1");
-        let inputSaida1 = document.querySelector('input[name="almoco_inicio"]');
-        let almocoInicio = document.getElementById("almoco_inicio").value;
-        let hora = parseInt(almocoInicio.substring(0, 2));
-        let min = parseInt(almocoInicio.substring(3));
-        let totalEmMinutos = hora * 60 + min;
-        let valida = 0;
-
-        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
-          inputSaida1.value
-        );
-
-        if (!isValid || totalEmMinutos === 0 || totalEmMinutos <= validaEntrada1()) {
-          validaSaida1.classList.remove("d-none");
-          validaSaida1.classList.add("d-block");
-          document.getElementById("almoco_inicio").value = "";
-          valida1 = document.querySelector("#almoco_fim").setAttribute("disabled", true);
-          document.getElementById("almoco_fim").value = "";
-          valida2 = document.querySelector("#saida").setAttribute("disabled", true);
-          document.getElementById("saida").value = "";
-        } else {
-          validaSaida1.classList.add("d-none");
-          valida = document.querySelector("#almoco_fim").removeAttribute("disabled");
-        }
-        return totalEmMinutos;
-      }
-
-      function validaEntrada2() {
-        let validaEntrada = document.querySelector("#validaEntrada2");
-        let inputEntrada = document.querySelector('input[name="almoco_fim"]');
-        let almocoFim = document.getElementById("almoco_fim").value;
-        let hora = parseInt(almocoFim.substring(0, 2));
-        let min = parseInt(almocoFim.substring(3));
-        let totalEmMinutos = hora * 60 + min;
-        let valida = 0;
-
-        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
-          inputEntrada.value
-        );
-
-        if (!isValid || totalEmMinutos === 0 || totalEmMinutos <= validaSaida1()) {
-          validaEntrada.classList.remove("d-none");
-          validaEntrada.classList.add("d-block");
-          document.getElementById("almoco_fim").value = "";
-          valida = document.querySelector("#saida").setAttribute("disabled", true);
-          document.getElementById("saida").value = "";
-        } else {
-          validaEntrada.classList.add("d-none");
-          valida = document.querySelector("#saida").removeAttribute("disabled");
-        }
-        return totalEmMinutos;
-      }
-
-      function validaSaida2() {
-        let validaSaida = document.querySelector("#validaSaida2");
-        let inputSaida1 = document.querySelector('input[name="saida"]');
-        let saida = document.getElementById("saida").value;
-        let hora = parseInt(saida.substring(0, 2));
-        let min = parseInt(saida.substring(3));
-        let totalEmMinutos = hora * 60 + min;
-        
-
-        let isValid = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/.test(
-          inputSaida1.value
-        );
-
-        if (!isValid || totalEmMinutos === 0 || totalEmMinutos <= validaEntrada2()) {
-          validaSaida.classList.remove("d-none");
-          validaSaida.classList.add("d-block");
-          document.getElementById("saida").value = "";
-        } else {
-          validaSaida.classList.add("d-none");
-        }
-        return totalEmMinutos;
+        return false;
       }
     </script>
   </body>
