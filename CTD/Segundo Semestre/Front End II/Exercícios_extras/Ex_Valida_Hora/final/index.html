@@ -1,128 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./jquery.mask.js"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <title>Valida Hora</title>
-  </head>
-  <body>
-    <div class="row">
-      <div class="col-xl-3">
-        <div class="input-group input-group-outline my-3 is-filled">
-          <label class="form-label">Entrada1</label>
-          <input
-            id="entrada1"
-            type="text"
-            name="entrada"
-            class="form-control entrada1"
-            required="required"
-            value=""
-          />
-          <div class="invalid-feedback d-none" id="validaEntrada1"></div>
-        </div>
-      </div>
-      <div class="col-xl-3">
-        <div class="input-group input-group-outline my-3 is-filled">
-          <label class="form-label">Saida1</label>
-          <input
-            id="almoco_inicio"
-            type="text"
-            name="almoco_inicio"
-            class="form-control saida1"
-            value=""
-            disabled
-          />
-        </div>
-        <div class="invalid-feedback d-none" id="validaSaida1">
-          Hora inválida
-        </div>
-      </div>
-      <div class="col-xl-3">
-        <div class="input-group input-group-outline my-3 is-filled">
-          <label class="form-label">Entrada2</label>
-          <input
-            id="almoco_fim"
-            type="text"
-            name="almoco_fim"
-            class="form-control entrada2"
-            value=""
-            disabled
-          />
-        </div>
-        <div class="invalid-feedback d-none" id="validaEntrada2">
-          Hora inválida
-        </div>
-      </div>
-      <div class="col-xl-3">
-        <div class="input-group input-group-outline my-3 is-filled">
-          <label class="form-label">Saida2</label>
-          <input
-            id="saida"
-            type="text"
-            name="saida"
-            class="form-control saida"
-            value=""
-            disabled
-          />
-        </div>
-        <div class="invalid-feedback d-none" id="validaSaida2">
-          Hora inválida
-        </div>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./jquery.mask.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <title>Valida Hora</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-xl-3">
+      <div class="input-group input-group-outline my-3 is-filled">
+        <label class="form-label">Entrada1</label>
+        <input id="entrada1" type="text" name="entrada" class="form-control entrada1" required="required" value="" />
+        <div class="invalid-feedback d-none" id="validaEntrada1"></div>
       </div>
     </div>
+    <div class="col-xl-3">
+      <div class="input-group input-group-outline my-3 is-filled">
+        <label class="form-label">Saida1</label>
+        <input id="almoco_inicio" type="text" name="almoco_inicio" class="form-control saida1" value="" readonly />
+      </div>
+      <div class="invalid-feedback d-none" id="validaSaida1"></div>
+    </div>
+    <div class="col-xl-3">
+      <div class="input-group input-group-outline my-3 is-filled">
+        <label class="form-label">Entrada2</label>
+        <input id="almoco_fim" type="text" name="almoco_fim" class="form-control entrada2" value="" readonly />
+      </div>
+      <div class="invalid-feedback d-none" id="validaEntrada2"></div>
+    </div>
+    <div class="col-xl-3">
+      <div class="input-group input-group-outline my-3 is-filled">
+        <label class="form-label">Saida2</label>
+        <input id="saida" type="text" name="saida" class="form-control saida2" value="" readonly />
+      </div>
+      <div class="invalid-feedback d-none" id="validaSaida2"></div>
+    </div>
+  </div>
 
-    <script>
-      $(function () {
-        $(".entrada1").mask("00:00", {
-          placeholder: "--:--",
-          onChange: function (horaC, event, currentField, options) {
-            if (validaHora(horaC)) {
-              $("#almoco_inicio").attr("disabled", false);
-              $("#validaEntrada1").addClass("d-none").removeClass("d-block");
-            } else {
-              if (horaC.length === 5 || horaC.length === 0) {
-                currentField.val("");
-                $("#validaEntrada1")
-                  .addClass("d-block")
-                  .removeClass("d-none")
-                  .text("Hora Inválida!");
-                $("#almoco_inicio").attr("disabled", true);
-              }
-            }
-          },
-        });
-      });
-
-      function validaHora(stringHora) {
-        if (stringHora.length === 5) {
-          console.log(stringHora);
-          let hora = parseInt(stringHora.substring(0, 2));
-          let min = parseInt(stringHora.substring(3));
-          let totalEmMinutos = hora * 60 + min;
-          return (
-            hora >= 0 &&
-            hora <= 23 &&
-            min >= 0 &&
-            min < 60 &&
-            totalEmMinutos !== 0
-          );
-        }
-        return false;
-      }
-    </script>
-  </body>
+  <script src="index.js"></script>
+  
+</body>
 </html>
