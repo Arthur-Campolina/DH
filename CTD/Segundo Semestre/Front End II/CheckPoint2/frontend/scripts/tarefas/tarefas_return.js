@@ -5,10 +5,7 @@ function returnTask(event) {
 
   let bodyUpdateTask = {
     completed: false,
-<<<<<<< HEAD
     createdAt: dayjs(),
-=======
->>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
   };
 
   let updateTaskJson = JSON.stringify(bodyUpdateTask); // Foi convertida para JSON para conseguirmos enviar para o servidor
@@ -27,10 +24,6 @@ function returnTask(event) {
       return result.json();
     })
     .then((result) => {
-<<<<<<< HEAD
-=======
-
->>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
       window.location.reload();
     })
     .catch((e) => {

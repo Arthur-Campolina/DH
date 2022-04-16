@@ -1,6 +1,5 @@
 let ulTarefaTerminada = document.querySelector(".tarefas-terminadas");
 
-<<<<<<< HEAD
 function renderizaTarefasTerminadas(tarefa) {
   let liTarefaFinalizada = document.createElement("li");
   liTarefaFinalizada.classList.add("tarefa");
@@ -15,8 +14,12 @@ function renderizaTarefasTerminadas(tarefa) {
       tarefa.createdAt
     ).format("DD/MM/YYYY - HH:mm:ss A - dddd")}</p>
     <div>
-        <button onclick = "returnTask(${tarefa.id})"><i class="fas fa-undo-alt change"></i></button>
-        <button onclick = "deleteTask(${tarefa.id})"><i class="far fa-trash-alt"></i></button>
+        <button onclick = "returnTask(${
+          tarefa.id
+        })"><i class="fas fa-undo-alt change"></i></button>
+        <button onclick = "deleteTask(${
+          tarefa.id
+        })"><i class="far fa-trash-alt"></i></button>
     </div>
     </div>
   
@@ -25,8 +28,6 @@ function renderizaTarefasTerminadas(tarefa) {
   ulTarefaTerminada.appendChild(liTarefaFinalizada);
 }
 
-=======
->>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
 function getId(id) {
   let tokenJwt = localStorage.getItem("jwt");
 
@@ -34,10 +35,7 @@ function getId(id) {
 
   let bodyUpdateTask = {
     completed: true,
-<<<<<<< HEAD
     createdAt: dayjs(),
-=======
->>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
   };
 
   let updateTaskJson = JSON.stringify(bodyUpdateTask); // Foi convertida para JSON para conseguirmos enviar para o servidor
@@ -56,7 +54,6 @@ function getId(id) {
       return result.json();
     })
     .then((result) => {
-<<<<<<< HEAD
       Swal.fire({
         icon: "success",
         title: "Tarefa concluída com suceso !",
@@ -66,34 +63,8 @@ function getId(id) {
       setTimeout(() => {
         window.location.reload();
       }, 1400);
-=======
-
-      window.location.reload();
->>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
     })
     .catch((e) => {
       console.log(e);
     });
 }
-<<<<<<< HEAD
-=======
-
-function renderizaTarefasTerminadas(tarefa) {
-  let liTarefaFinalizada = document.createElement("li");
-  liTarefaFinalizada.classList.add("tarefa");
-
-  liTarefaFinalizada.innerHTML = `
-    <div class="done"></div>
-    <div class="descricao">
-    <p class="nome">${tarefa.description}</p>
-    <div>
-        <button onclick = "returnTask(${tarefa.id})"><i class="fas fa-undo-alt change"></i></button>
-        <button onclick = "deleteTask(${tarefa.id})"><i class="far fa-trash-alt"></i></button>
-    </div>
-    </div>
-  
-          `;
-
-  ulTarefaTerminada.appendChild(liTarefaFinalizada);
-}
->>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
