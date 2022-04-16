@@ -17,6 +17,7 @@ function deleteTask(event) {
         return result.json();
       })
       .then((result) => {
+<<<<<<< HEAD
         Swal.fire({
           icon: 'question',
           title: 'VocÃª tem certeza que quer excluir a tarefa?',
@@ -43,10 +44,17 @@ function deleteTask(event) {
             })
           }
         })
+=======
+          window.location.reload();
+>>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
       })
       .catch((e) => {
         alert(e);
       });
   }
+<<<<<<< HEAD
 
 
+=======
+  
+>>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b

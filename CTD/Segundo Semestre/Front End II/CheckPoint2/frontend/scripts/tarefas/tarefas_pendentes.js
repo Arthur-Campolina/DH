@@ -3,6 +3,7 @@ let tarefasPendentesHtml = document.querySelector(".tarefas-pendentes");
 function renderizaTarefasPendentes(tarefa) {
   let liTarefaPendente = document.createElement("li");
   liTarefaPendente.classList.add("tarefa");
+<<<<<<< HEAD
   liTarefaPendente.setAttribute("data-aos", "fade-right");
   liTarefaPendente.setAttribute("data-aos-duration", "1000");
 
@@ -16,6 +17,15 @@ function renderizaTarefasPendentes(tarefa) {
                 <p class="timestamp"><i class="far fa-calendar-alt"></i> ${dayjs(
                   tarefa.createdAt
                 ).format("DD/MM/YYYY - HH:mm:ss A dddd")}</p>
+=======
+  API.get();
+
+  liTarefaPendente.innerHTML = `
+            <div class="not-done" onclick= getId(${tarefa.id})  id="${tarefa.id}"></div>
+            <div class="descricao">
+                <p class="nome">${tarefa.description}</p>
+                <p class="timestamp"><i class="far fa-calendar-alt"></i> ${tarefa.createdAt}</p>
+>>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b
             </div>
 
         `;
@@ -55,4 +65,15 @@ function getId(id) {
     .catch((e) => {
       console.log(e);
     });
+<<<<<<< HEAD
 }
+=======
+
+    
+}
+
+
+
+
+  
+>>>>>>> 86b5f1e1591282dc6784f6cb916edc19b40b704b

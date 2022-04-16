@@ -49,7 +49,7 @@ onload = () => {
     .catch((erro) => {
       console.log(erro);
     });
-
+    
   // @@ Criando a requisição para criar uma tarefa e mostrar no console.
 
   let formTarefa = document.querySelector(".nova-tarefa button");
