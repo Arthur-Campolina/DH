@@ -1,13 +1,14 @@
-package entities;
+package com.arthurcampolina.ToDO.entities;
 
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.Instant;
+
 
 @Data
 @Entity
-@Table(name = "tasks")
+@Table(name = "tb_tasks")
 public class Task {
 
     @Id
@@ -19,5 +20,5 @@ public class Task {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId", referencedColumnName = "id")
     private User userId;
-    private Date createdAt;
+    private Instant createdAt;
 }

@@ -8,18 +8,21 @@
   <!-- ----------------------------- estilos CSS ----------------------------- -->
   <link rel="stylesheet" href="./styles/tarefas.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
   <!-- ------------------- Biblioteca de icones - Fontawesome -------------------- -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- ----------------------------- sweet alert ----------------------------- -->
+  
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- CDN example (unpkg) -->
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  
 
 
   <title>To-Do App</title>
@@ -33,25 +36,26 @@
 
     <div class="user-info">
       <p>Nome usuário</p>
-      <div class="user-image"></div>
+      <div class="user-image">
+        <img class="user-img" src="" id="userImg">
+      </div>
       <p id="closeApp">Finalizar sessão</i>
       </p>
     </div>
   </header>
 
 
-  <form class="nova-tarefa">
+  <form class="nova-tarefa" data-aos="fade-right" data-aos-duration="1000">
     <div class="not-done "></div>
     <input id="novaTarea" type="text" placeholder="Nova tarefa">
     <button type="submit">
-      <img src="./assets/plus.png" alt="Adicionar uma nova tarefa">
+      <img src="./assets/plus.svg" alt="Adicionar uma nova tarefa">
     </button>
   </form>
 
 
   <ul class="tarefas-pendentes">
-    <!-- <div id="skeleton"> -->
-    <div>
+    <!-- <div id="skeleton">
       <li class="tarefa">
         <div class="not-done"></div>
         <div class="descricao">
@@ -74,16 +78,25 @@
         </div>
       </li>
 
-    </div>
+    </div> -->
   </ul>
 
-  <h2 class="titulo-terminadas">Tarefas terminadas</h2>
+  <div class="div-terminadas" data-aos="fade-right" data-aos-duration="1000"><h2 class="titulo-terminadas">Tarefas terminadas</h2></div>
   <ul class="tarefas-terminadas">
 
   </ul>
 
   <script src="./scripts/tarefas/tarefas.js"></script>
   <script defer src="./scripts/tarefas/tasks.js"></script>
+  <script defer src="./scripts/tarefas/tarefas_pendentes.js"></script>
+  <script defer src="./scripts/tarefas/tarefas_terminadas.js"></script>
+  <script defer src="./scripts/logout/logout.js"></script>
+  <script defer src="./scripts/tarefas/tarefas_return.js"></script>
+  <script defer src="./scripts/tarefas/tarefas_delete.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </body>
 
 </html>

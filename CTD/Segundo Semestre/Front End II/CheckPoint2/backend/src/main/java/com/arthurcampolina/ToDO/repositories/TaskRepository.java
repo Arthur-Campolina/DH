@@ -1,6 +1,6 @@
-package repositories;
+package com.arthurcampolina.ToDO.repositories;
 
-import entities.Task;
+import com.arthurcampolina.ToDO.entities.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
