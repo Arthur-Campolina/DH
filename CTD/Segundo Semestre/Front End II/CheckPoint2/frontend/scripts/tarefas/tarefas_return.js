@@ -19,14 +19,39 @@ function returnTask(event) {
     },
   };
 
-  fetch(endPointUpdateTask, configUpdateTasks)
-    .then((result) => {
-      return result.json();
-    })
-    .then((result) => {
-      window.location.reload();
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+  Swal.fire({
+    icon: "question",
+    title: "Você quer alterar a tarefa para em andamento ?",
+    showDenyButton: true,
+    confirmButtonText: "Sim",
+    denyButtonText: 'Não',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        icon: "success",
+        title: "Tarefa alterada para em andamento!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+
+      fetch(endPointUpdateTask, configUpdateTasks)
+        .then((result) => {
+          return result.json();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1100);
+    } else if (result.isDenied) {
+      Swal.fire({
+        icon: "info",
+        title: "Tarefa Mantida!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
+  });
 }

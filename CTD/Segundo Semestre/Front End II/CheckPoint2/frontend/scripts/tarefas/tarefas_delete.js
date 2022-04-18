@@ -3,7 +3,6 @@ function deleteTask(event) {
 
   let endPointDeleteTask = `https://ctd-todo-api.herokuapp.com/v1/tasks/${event}`;
 
-
   let configDeleteTasks = {
     method: "DELETE",
     headers: {
@@ -12,39 +11,40 @@ function deleteTask(event) {
     },
   };
 
-  fetch(endPointDeleteTask, configDeleteTasks)
-    .then((result) => {
-      return result.json();
-    })
-    .then((result) => {
+  Swal.fire({
+    icon: "question",
+    title: "Você tem certeza que quer excluir a tarefa?",
+    showDenyButton: true,
+    confirmButtonText: "Sim",
+    denyButtonText: 'Não',
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
       Swal.fire({
-        icon: 'question',
-        title: 'VocÃª tem certeza que quer excluir a tarefa?',
-        showDenyButton: true,
-        confirmButtonText: 'Sim',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            icon: 'warning',
-            title: 'Tarefa excluida!',
-            showConfirmButton: false,
-            timer: 1000
-          })
-          setTimeout(() => {
-            window.location.reload();
-          }, 1100)
-    
-        } else if (result.isDenied) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Tarefa mantida!',
-            showConfirmButton: false,
-            timer: 1000
-          })
-        }
-      })
-    })
-    .catch((e) => {
-      alert(e);
-    });
+        icon: "success",
+        title: "Tarefa excluida!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      fetch(endPointDeleteTask, configDeleteTasks)
+        .then((result) => {
+          return result.json();
+        })
+        .catch((e) => {
+          alert(e);
+        });
+      setTimeout(() => {
+        // tokenJwt = localStorage.removeItem("jwt")
+        window.location.reload();
+      }, 1100);
+    } else if (result.isDenied) {
+      Swal.fire({
+        icon: "info",
+        title: "Tarefa mantida!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      // location.reload()
+    }
+  });
 }

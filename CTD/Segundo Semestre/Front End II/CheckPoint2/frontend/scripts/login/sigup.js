@@ -33,6 +33,7 @@ let novoUsuario = {
 let emailValido = false;
 let senhaValida = false;
 let nomeValido = false;
+let repetirSenha = false;
 let imageUser = false;
 
 // Validação para verificar se os campos estão preenchidos e se estiverem para normalizar, deixar sem espaços e tudo minusculo, exceto o apelido.
@@ -49,9 +50,9 @@ botaoCriarConta.addEventListener("click", (e) => {
     campoEmailNormalizado = conventerValorRecebidoParaMinusculo(
       campoEmailNormalizado
     );
-    campoSenhaNormalizado = conventerValorRecebidoParaMinusculo(
-      inputSenha.value
-    );
+    // campoSenhaNormalizado = conventerValorRecebidoParaMinusculo(
+    //   inputSenha.value // @@ Foi retirado, para que as senhas pudessem ter caracteres maiúsculas.
+    // );
     campoRepetirSenhaNormalizado = conventerValorRecebidoParaMinusculo(
       inputRepetirSenha.value
     );
@@ -59,7 +60,7 @@ botaoCriarConta.addEventListener("click", (e) => {
     novoUsuario.firstName = campoNomeNormalizado;
     novoUsuario.lastName = campoApelidoNormalizado;
     novoUsuario.email = campoEmailNormalizado;
-    novoUsuario.password = campoSenhaNormalizado;
+    novoUsuario.password = inputSenha.value; // Não foi normalizada para que a senha pudesse ser maiúscula
     novoUsuario.repetirSenha = campoRepetirSenhaNormalizado;
 
     // @ Criando um novo usuário pela API
@@ -81,10 +82,12 @@ botaoCriarConta.addEventListener("click", (e) => {
         }
       })
       .then((result) => {
+        mostrarSpinner();
         cadastroSucesso();
       })
       .catch((erro) => {
         console.log(erro);
+        ocultarSpinner();
       });
   } else {
     Swal.fire({
@@ -92,23 +95,26 @@ botaoCriarConta.addEventListener("click", (e) => {
       title: "Todos os campos devem ser preenchidos !",
       showConfirmButton: false,
       timer: 2000,
-    })
+    });
     setTimeout(() => {
       location.href = "signup.html";
     }, 2100);
- } 
+  }
 });
 
 function cadastroSucesso() {
-  Swal.fire({
-            icon: "success",
-            title: "Cadastro efetuado com sucesso !",
-            showConfirmButton: false,
-            timer: 2000,
-          })
-          setTimeout(() => {
-            location.href = "index.html";
-          }, 2100);
+  setTimeout(() => {
+    Swal.fire({
+      icon: "success",
+      title: "Cadastro efetuado com sucesso !",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }, 1000);
+
+  setTimeout(() => {
+    location.href = "index.html";
+  }, 2500);
 }
 
 // Validação do campo de nome
@@ -188,6 +194,7 @@ inputSenha.addEventListener("keyup", () => {
     smallSenha.innerText = "Estamos quase lá 😀";
     smallSenha.style.marginTop = "10px";
     smallSenha.style.fontSize = "11px";
+    senhaValida = true;
   } else if (inputSenha.value != "" && inputSenha.value.length >= 8) {
     inputSenha.style.border = "1px solid #45dd45a1";
     smallSenha.style.fontWeight = "bold";
@@ -243,7 +250,7 @@ inputRepetirSenha.addEventListener("keyup", () => {
     smallRepetirSenha.style.color = "#45dd45";
 
     inputRepetirSenha.style.border = "1px solid #45dd45a1";
-    senhaValida = true;
+    repetirSenha = true;
   } else {
     smallRepetirSenha.innerHTML = "Senha errada";
     smallRepetirSenha.style.fontWeight = "bold";
@@ -252,14 +259,19 @@ inputRepetirSenha.addEventListener("keyup", () => {
     smallRepetirSenha.style.fontSize = "11px";
 
     inputRepetirSenha.style.border = "1px solid red";
-    senhaValida = false;
+    repetirSenha = false;
   }
   validacaoTelaDeLogin();
 });
 
 function validacaoTelaDeLogin() {
   // Função criada para haiblitar o botão ou não.
-  if (emailValido === true && senhaValida === true && nomeValido === true) {
+  if (
+    emailValido === true &&
+    senhaValida === true &&
+    nomeValido === true &&
+    repetirSenha === true
+  ) {
     // Se o e-mail for válido (true), ele habilita o botão e troca o texto para acessar
 
     botaoCriarConta.removeAttribute("disabled");

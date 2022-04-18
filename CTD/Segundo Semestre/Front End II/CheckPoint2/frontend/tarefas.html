@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/homework.png" type="image/x-icon">
   <!-- ----------------------------- estilos CSS ----------------------------- -->
   <link rel="stylesheet" href="./styles/tarefas.css">
+  <link rel="stylesheet" href="styles/spinner.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
   <!-- ------------------- Biblioteca de icones - Fontawesome -------------------- -->
@@ -46,7 +48,7 @@
 
 
   <form class="nova-tarefa" data-aos="fade-right" data-aos-duration="1000">
-    <div class="not-done "></div>
+    <!-- <div class="not-done "></div> -->
     <input id="novaTarea" type="text" placeholder="Nova tarefa">
     <button type="submit">
       <img src="./assets/plus.svg" alt="Adicionar uma nova tarefa">
@@ -93,6 +95,7 @@
   <script defer src="./scripts/logout/logout.js"></script>
   <script defer src="./scripts/tarefas/tarefas_return.js"></script>
   <script defer src="./scripts/tarefas/tarefas_delete.js"></script>
+  <script src="./scripts/login/loader.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
