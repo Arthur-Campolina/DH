@@ -3,12 +3,17 @@ package com.arthurcampolina.ToDO.services;
 import com.arthurcampolina.ToDO.entities.Task;
 import com.arthurcampolina.ToDO.repositories.TaskRepository;
 import com.arthurcampolina.ToDO.dtos.TaskDTO;
+import com.arthurcampolina.ToDO.services.impl.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-public class TaskService {
+
+@Service
+@Transactional
+public class TaskService implements TaskServiceImpl {
 
     @Autowired
     private TaskRepository taskRepository;

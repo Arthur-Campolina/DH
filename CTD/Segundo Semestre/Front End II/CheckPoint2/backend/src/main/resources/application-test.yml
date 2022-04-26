@@ -28,3 +28,6 @@ security:
 jwt:
   secret: MY-JWT-SECRET
   duration: 2592000
+
+front:
+  url: ${URL_FRONT:todo}
