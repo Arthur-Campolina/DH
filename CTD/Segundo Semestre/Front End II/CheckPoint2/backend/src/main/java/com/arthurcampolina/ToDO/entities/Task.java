@@ -17,8 +17,5 @@ public class Task {
     @Column(columnDefinition="TEXT")
     private String description;
     private Boolean completed;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userId", referencedColumnName = "id")
-    private User userId;
     private Instant createdAt;
 }

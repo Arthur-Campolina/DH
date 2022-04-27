@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,11 @@ public class User extends AbstractEntity implements UserDetails {
     private String firstName;
     private String lastName;
     private String password;
+
+    @OneToMany(orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private Set<Task> tasks = new LinkedHashSet<>();
+
     @Setter(AccessLevel.NONE)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tb_users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name="role_id"))
