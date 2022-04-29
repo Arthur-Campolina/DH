@@ -10,8 +10,8 @@ spring:
   mail:
     host: smtp.mailtrap.io
     port: 587
-    username: 1101264b6d2b42
-    password: 226cbc00bd57ff
+    username: admin
+    password: admin123
     default-encoding: UTF-8
     jndi-name: mail/Session
     test-connection: true
