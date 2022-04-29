@@ -18,4 +18,8 @@ public class Task {
     private String description;
     private Boolean completed;
     private Instant createdAt;
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 }

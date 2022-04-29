@@ -3,6 +3,7 @@ package com.arthurcampolina.ToDO.services;
 import com.arthurcampolina.ToDO.dtos.TaskDTO;
 import com.arthurcampolina.ToDO.entities.Task;
 import com.arthurcampolina.ToDO.entities.Task;
+import com.arthurcampolina.ToDO.entities.User;
 import com.arthurcampolina.ToDO.exceptions.DataBaseException;
 import com.arthurcampolina.ToDO.exceptions.NotFoundException;
 import com.arthurcampolina.ToDO.repositories.TaskRepository;
@@ -44,6 +45,8 @@ public class TaskService implements TaskServiceImpl {
 
     public TaskDTO save(TaskDTO dto, Authentication auth) {
         Task task = new Task();
+        User user = new User();
+        dto.setUserDTO(user.getId());
         copyDtoToEntity(dto, task);
         task = repository.save(task);
         return new TaskDTO(task);

@@ -30,8 +30,8 @@ public class User extends AbstractEntity implements UserDetails {
     private String lastName;
     private String password;
 
-    @OneToMany(orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name="tb_users", nullable=false)
     private Set<Task> tasks = new LinkedHashSet<>();
 
     @Setter(AccessLevel.NONE)

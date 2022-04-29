@@ -18,6 +18,7 @@ public class TaskDTO {
     private String description;
     private Boolean completed;
     private Instant createdAt;
+    private Integer userDTO;
 
     public TaskDTO(Task entity) {
 
@@ -25,5 +26,6 @@ public class TaskDTO {
         this.description = entity.getDescription();
         this.completed = entity.getCompleted();
         this.createdAt = entity.getCreatedAt();
+        this.userDTO = entity.getUser().getId();
     }
 }
