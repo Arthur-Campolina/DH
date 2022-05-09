@@ -27,7 +27,7 @@ let novoUsuario = {
   lastName: "",
   email: "",
   password: "",
-  imageUser: "",
+  // imageUser: "",
 };
 
 let emailValido = false;
@@ -65,7 +65,7 @@ botaoCriarConta.addEventListener("click", (e) => {
 
     // @ Criando um novo usuário pela API
     let cadastroJson = JSON.stringify(novoUsuario);
-    let endPointLogin = "https://ctd-todo-api.herokuapp.com/v1/users";
+    let endPointLogin = "https://apptodo-dh-backend.herokuapp.com/users";
 
     let configNewUser = {
       method: "POST",

@@ -32,7 +32,7 @@ onload = () => {
       console.log(erro);
     });
 
-  let endPointTask = "https://ctd-todo-api.herokuapp.com/v1/tasks";
+  let endPointTask = "https://apptodo-dh-backend.herokuapp.com/tasks";
 
   // @@ Criando a requisição para pegar as informações das tarefas
 
