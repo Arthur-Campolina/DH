@@ -12,12 +12,12 @@ public class Cachorro {
     }
 
     public Cachorro(
-                    String nome,
-                    String raca,
-                    int anoNascimento,
-                    Double peso,
-                    boolean temChip,
-                    boolean estaFerido
+            String nome,
+            String raca,
+            int anoNascimento,
+            Double peso,
+            boolean temChip,
+            boolean estaFerido
     ) {
         this.nome = nome;
         this.raca = raca;
@@ -76,13 +76,14 @@ public class Cachorro {
     }
 
     public String podeAdotar(Double peso, boolean estaFerido) {
-        if(this.peso >= 5 && !estaFerido){
+        if (this.peso >= 5 && !estaFerido) {
             return ("O " + this.nome + " pode ser adotado!");
         } else {
             return ("O " + this.nome + " não pode ser adotado!");
         }
     }
+
     public int idade(int anoNascimento) {
-       return LocalDate.now().getYear() - anoNascimento;
+        return LocalDate.now().getYear() - anoNascimento;
     }
 }
