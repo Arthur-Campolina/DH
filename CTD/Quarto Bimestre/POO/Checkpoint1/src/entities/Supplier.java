@@ -11,6 +11,9 @@ public class Supplier extends AbstractEntity {
     private String neighbourhood;
     private String zipCode;
 
+    public Supplier() {
+    }
+
     public Supplier(String name, String cnpj, String phone, String email, String streetNumber, String street, String neighbourhood, String zipCode) {
         super();
         this.name = name;
@@ -85,5 +88,20 @@ public class Supplier extends AbstractEntity {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Fornecedor: " + getId() + "\n");
+        sb.append("Nome: " + name + "\n");
+        sb.append("Cnpj: " + cnpj + "\n");
+        sb.append("Telefone: " + phone + "\n");
+        sb.append("Email: " + email +"\n");
+        sb.append("Endereço: " + streetNumber + " " + street + " " + neighbourhood + " - " + zipCode);
+        sb.append("Email: " + email +"\n");
+        sb.append("Email: " + email +"\n");
+        sb.append("Email: " + email +"\n");
+        return sb.toString();
     }
 }

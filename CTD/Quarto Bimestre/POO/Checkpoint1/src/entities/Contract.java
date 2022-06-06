@@ -3,7 +3,6 @@ package entities;
 import entities.enums.ContractType;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Contract extends AbstractEntity {
@@ -11,12 +10,15 @@ public class Contract extends AbstractEntity {
     private Client client;
     private String contractType;
     private Integer qtdGuests;
-    private Date eventDate;
+    private String eventDate;
     private Supplier supplier;
     private List<Product> products = new ArrayList<>();
     private List<Employee> employees = new ArrayList<>();
 
-    public Contract(Client client, String contractType, Integer qtdGuests, Date eventDate, Supplier supplier, List<Product> products, List<Employee> employees) {
+    public Contract() {
+    }
+
+    public Contract(Client client, String contractType, Integer qtdGuests, String eventDate, Supplier supplier, List<Product> products, List<Employee> employees) {
         super();
         this.client = client;
         this.contractType = contractType;
@@ -52,11 +54,11 @@ public class Contract extends AbstractEntity {
         this.qtdGuests = qtdGuests;
     }
 
-    public Date getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 
@@ -110,7 +112,7 @@ public class Contract extends AbstractEntity {
     public Double getContractPrice() {
         double employeesPrice = getQtdEmployees() * 200.00;
         Double productsPrice = 0.00;
-        for(Product x : products) {
+        for (Product x : products) {
             productsPrice += x.getPrice();
         }
         return productsPrice + employeesPrice + 2000.00;
@@ -124,12 +126,17 @@ public class Contract extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "Contract: " + getId() +
-                "Cliente: " + client +
-                "Tipo de contrato: " + contractType + '\'' +
-                "Quantidade de convidados: " + qtdGuests +
-                "Data do evento: " + eventDate +
-                "Produtos: " + products
-                ;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Contrato: ").append(getId()).append("\n");
+        sb.append("Cliente: ").append(client.getName()).append("\n");
+        sb.append("Tipo de contrato: ").append(contractType).append("\n");
+        sb.append("Quantidade de convidados: ").append(qtdGuests).append("\n");
+        sb.append("Data do evento: ").append(eventDate).append("\n");
+        sb.append("Produtos: ");
+        for (Product x : products) {
+            sb.append(x.getName()).append(" ");
+        }
+        sb.append("\n").append("O preço total é: R$" + getContractPrice());
+        return sb.toString();
     }
 }

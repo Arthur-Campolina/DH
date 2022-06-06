@@ -36,4 +36,10 @@ public class BankAccount extends AbstractEntity {
     public void setAccNumber(String accNumber) {
         this.accNumber = accNumber;
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Banco: " + getName() + " " + getBranch() + " " + getAccNumber() + "\n");
+        return sb.toString();
+    }
 }

@@ -7,6 +7,9 @@ public class Product extends AbstractEntity{
     private Integer qtd;
     private Double price;
 
+    public Product() {
+    }
+
     public Product(String name, String brand, Integer qtd, Double price) {
         super();
         this.name = name;
@@ -49,5 +52,16 @@ public class Product extends AbstractEntity{
 
     public Double getTotalPrice() {
         return this.qtd * this.price;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Produto: " + getId() + "\n");
+        sb.append("Nome: " + name + "\n");
+        sb.append("Marca: " + brand + "\n");
+        sb.append("Quantidade: " + qtd + "\n");
+        sb.append("Preço: R$" + price +"\n");
+        return sb.toString();
     }
 }

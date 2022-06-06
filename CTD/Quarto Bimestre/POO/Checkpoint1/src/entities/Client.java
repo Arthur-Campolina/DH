@@ -13,6 +13,9 @@ public class Client extends AbstractEntity {
     private String zipCode;
     private BankAccount bankAccount;
 
+    public Client() {
+    }
+
     public Client(String name, String surname, String phone, String email, String cpf, String streetNumber, String street, String neighbourhood, String zipCode, BankAccount bankAccount) {
         super();
         this.name = name;
@@ -105,5 +108,16 @@ public class Client extends AbstractEntity {
 
     public void setBankAccount(BankAccount bankAccount) {
         this.bankAccount = bankAccount;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nome: " + name).append(" ").append(surname).append("\n");
+        sb.append("Email: " + email + "\n");
+        sb.append("Telefone: " + phone + "\n");
+        sb.append("Cpf: " + cpf + "\n");
+        sb.append("Endereço: " + streetNumber + " " + street + " " + neighbourhood + " - " + zipCode + "\n");
+        return sb.toString();
     }
 }

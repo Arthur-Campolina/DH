@@ -153,4 +153,14 @@ public class Buffet extends AbstractEntity {
     public void removeSupplier(Supplier supplier) {
         this.suppliers.remove(supplier);
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nome: " + name + "\n");
+        sb.append("Email: " + email + "\n");
+        sb.append("Telefone: " + phone + "\n");
+        sb.append("Cnpj: " + cnpj + "\n");
+        sb.append("Endereço: " + streetNumber + " " + street + " " + neighbourhood + " - " + zipCode + "\n");
+        return sb.toString();
+    }
 }
