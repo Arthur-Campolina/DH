@@ -10,8 +10,6 @@ import java.util.Locale;
 
 public class Employee extends AbstractEntity {
 
-    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
     private String name;
     private String surname;
     private Date birthday;
