@@ -1,0 +1,14 @@
+{
+  "name": "aula-15",
+  "version": "1.0.0",
+  "description": "calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --collect-coverage"
+  },
+  "author": "Arthur Campolina",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.1"
+  }
+}
