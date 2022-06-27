@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Obra implements Comparable<Obra> {
+public class Obra {
     private int id;
     private String endereco;
     private Date dataIni;
@@ -55,12 +55,4 @@ public class Obra implements Comparable<Obra> {
         this.dataFimReal = dataFimReal;
     }
 
-    @Override
-    public int compareTo(Obra obra) {
-        if (dataFimPrevista != dataFimReal) {
-            return -1;
-        }
-        return 1;
-    }
-
-}
+ }

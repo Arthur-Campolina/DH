@@ -1,9 +1,13 @@
+import java.text.SimpleDateFormat;
+
 public class Projeto {
     private int id;
     private String nome;
     private String cidade;
     private Estado estado;
     private Obra obra;
+
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public Projeto(int id, String nome, String cidade, Estado estado, Obra obra) {
         this.id = id;
@@ -54,7 +58,7 @@ public class Projeto {
     }
 
     public boolean terminouNaData() {
-        return obra.getDataFimPrevista() == obra.getDataFimReal();
+        return obra.getDataFimPrevista().equals(obra.getDataFimReal());
     }
 
     @Override
@@ -65,8 +69,8 @@ public class Projeto {
                 "Estado: " + estado.getDescricao() + "\n" +
                 "Obra: " + obra.getId() + "\n" +
                 "Endereço da Obra: " + obra.getEndereco() + "\n" +
-                "Data de início da obra: " + obra.getDataIni() + "\n" +
-                "Data final prevista da obra: " + obra.getDataFimPrevista() + "\n" +
-                "Data final real da obra: " + obra.getDataFimReal() + "\n";
+                "Data de início da obra: " + sdf.format(obra.getDataIni()) + "\n" +
+                "Data final prevista da obra: " + sdf.format(obra.getDataFimPrevista()) + "\n" +
+                "Data final real da obra: " + sdf.format(obra.getDataFimReal()) + "\n";
     }
 }
