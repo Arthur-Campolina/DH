@@ -30,10 +30,13 @@ public class Departamento extends Projeto implements Comparable<Departamento> {
 
     @Override
     public int compareTo(Departamento departamento) {
-        if (numApartamentos() > departamento.numApartamentos()) {
+        if (this.numApartamentos() > departamento.numApartamentos()) {
             return 1;
+        } else if (this.numApartamentos() == departamento.numApartamentos()) {
+            return 0;
+        } else {
+            return -1;
         }
-        return -1;
     }
 
     public boolean arranhaCeu() {
