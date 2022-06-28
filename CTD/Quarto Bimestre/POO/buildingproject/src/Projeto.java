@@ -64,9 +64,6 @@ public class Projeto {
                 "Cidade: " + cidade + "\n" +
                 "Estado: " + estado.getDescricao() + "\n" +
                 "Obra: " + obra.getId() + "\n" +
-                "Endereço da Obra: " + obra.getEndereco() + "\n" +
-                "Data de início da obra: " + obra.getDataIni() + "\n" +
-                "Data final prevista da obra: " + obra.getDataFimPrevista() + "\n" +
-                "Data final real da obra: " + obra.getDataFimReal() + "\n";
+                "Endereço da Obra: " + obra.getEndereco() + "\n";
     }
 }
