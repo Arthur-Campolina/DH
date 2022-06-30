@@ -1,0 +1,425 @@
+{
+	"id": "4980f7ed-e98c-4e92-b7ea-1df6939c893a",
+	"name": "Public REST APIs",
+	"timestamp": "2022-06-30T01:38:21.204Z",
+	"collection_id": "19294774-fe39b16f-7c49-49d7-8780-a9be1757f5c5",
+	"folder_id": 0,
+	"environment_id": "19294774-ee921e54-c7fa-42da-80d5-ad8ef87cc6e4",
+	"totalPass": 20,
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "2a43fd77-f7be-43ba-b785-4ecf24884f3b",
+			"name": "Dog Breeds",
+			"url": "https://dog.ceo/api/breeds/list/all",
+			"time": 460,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Response time is less than 800ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 800ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				460
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Response time is less than 800ms": true
+				}
+			]
+		},
+		{
+			"id": "c2f68878-6110-45a8-8451-b720ca173474",
+			"name": "Pet Food Facts",
+			"url": "https://world.openpetfoodfacts.org/api/v0/product/20106836.json",
+			"time": 1265,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Response time is less than 800ms": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 800ms": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				1265
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Response time is less than 800ms": false
+				}
+			]
+		},
+		{
+			"id": "d48efbee-8165-4771-9f70-77ee683863ad",
+			"name": "List API",
+			"url": "http://api.apis.guru/v2/list.json",
+			"time": 269,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				269
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a5ceda5f-0ebd-4124-b585-7795e5e00e12",
+			"name": "Barcode Lookup",
+			"url": "https://world.openfoodfacts.org/api/v0/product/737628064502.json",
+			"time": 224,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Response time is less than 800ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 800ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				224
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Response time is less than 800ms": true
+				}
+			]
+		},
+		{
+			"id": "495503dc-bce4-428e-a2fb-2f4f02a8aabe",
+			"name": "Book",
+			"url": "https://openlibrary.org/api/books?bibkeys=ISBN:0201558025,LCCN:93005405&format=json",
+			"time": 823,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Response time is less than 800ms": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 800ms": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				823
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Response time is less than 800ms": false
+				}
+			]
+		},
+		{
+			"id": "72042d79-b227-4f19-a769-67360546dc44",
+			"name": "Covers",
+			"url": "http://covers.openlibrary.org/b/isbn/0385472579-S.jpg",
+			"time": 412,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 800ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 800ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				412
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 800ms": true
+				}
+			]
+		},
+		{
+			"id": "eceff241-5fa6-4820-9259-357e788d0f2b",
+			"name": "Search",
+			"url": "http://openlibrary.org/search.json?q=the+lord+of+the+rings",
+			"time": 1856,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Response time is less than 2000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 2000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1856
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Response time is less than 2000ms": true
+				}
+			]
+		},
+		{
+			"id": "3f5e43d0-28fc-4521-a005-9b583e8f566c",
+			"name": "Makes of Cars",
+			"url": "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json",
+			"time": 1212,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Response time is less than 600ms": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 600ms": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				1212
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"Response time is less than 600ms": false
+				}
+			]
+		},
+		{
+			"id": "470e066f-22d3-4983-8b13-a7da52cee31d",
+			"name": "Car Manufacturers",
+			"url": "https://vpic.nhtsa.dot.gov/api/vehicles/getallmanufacturers?format=json",
+			"time": 408,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				408
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "ca30e0a2-2e68-43b8-888e-4b3a7887e41e",
+			"name": "Books",
+			"url": "https://www.anapioficeandfire.com/api/books",
+			"time": 1292,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1292
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "07b60e5c-8e71-4f52-b45f-db4ddea3b531",
+			"name": "ALL CAPS AS A SERVICE",
+			"url": "http://api.shoutcloud.io/V1/SHOUT",
+			"time": 405,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				405
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 8626,
+	"collection": {
+		"requests": [
+			{
+				"id": "2a43fd77-f7be-43ba-b785-4ecf24884f3b",
+				"method": "GET"
+			},
+			{
+				"id": "c2f68878-6110-45a8-8451-b720ca173474",
+				"method": "GET"
+			},
+			{
+				"id": "d48efbee-8165-4771-9f70-77ee683863ad",
+				"method": "GET"
+			},
+			{
+				"id": "a5ceda5f-0ebd-4124-b585-7795e5e00e12",
+				"method": "GET"
+			},
+			{
+				"id": "495503dc-bce4-428e-a2fb-2f4f02a8aabe",
+				"method": "GET"
+			},
+			{
+				"id": "72042d79-b227-4f19-a769-67360546dc44",
+				"method": "GET"
+			},
+			{
+				"id": "eceff241-5fa6-4820-9259-357e788d0f2b",
+				"method": "GET"
+			},
+			{
+				"id": "3f5e43d0-28fc-4521-a005-9b583e8f566c",
+				"method": "GET"
+			},
+			{
+				"id": "470e066f-22d3-4983-8b13-a7da52cee31d",
+				"method": "GET"
+			},
+			{
+				"id": "ca30e0a2-2e68-43b8-888e-4b3a7887e41e",
+				"method": "GET"
+			},
+			{
+				"id": "07b60e5c-8e71-4f52-b45f-db4ddea3b531",
+				"method": "POST"
+			}
+		]
+	}
+}
