@@ -1,7 +1,7 @@
 public class OfertaAcademicaFactory {
+
     private final static String FRONT_END = "front";
     private final static String BACK_END = "back";
-    private final static String PROGRAMA = "programa";
     private static OfertaAcademicaFactory instance;
 
     private OfertaAcademicaFactory() {
@@ -21,6 +21,5 @@ public class OfertaAcademicaFactory {
             default -> new ProgramaIntensivo("Programa Intensivo", "abc", 20);
         };
     }
-
 
 }
