@@ -5,7 +5,8 @@ ${BOTAO_COKIES}             css=#CybotCookiebotDialogBodyLevelButtonLevelOptinAl
 ${BOTAO_PACOTES}            xpath=//*[@id="__next"]/div[1]/div[2]/div/div/div[1]/div/div/button[2]
 ${CAMPO_PESQUISA}           css=#destination-input
 ${CIDADE}                   Buenos Aires
-${PACOTE}                   css=#h-1pez0jj
+${BOTAO_PESQUISA}           xpath=//*[@id="__next"]/div[1]/div[2]/div/div/div[2]/button
+${PACOTE}                   xpath=//*[@id="__next"]/div/main/section/div[1]/a[1]/div[1]/img
 ${BOTAO_ESCOLHER}           css=#h-3t22h6
 ${CHECKBOX}                 css=#LGPKG-1384831-3032675
 ${BOTAO_PROXIMO}            css=#h-1yuatql
@@ -28,8 +29,9 @@ ${BOTAO_GERAR_BOLETO}       css=#info
 *** Keywords ***
 Acessar o site
   Open Browser      ${SITE}                     ${NAVEGADOR}
+  sleep             5
   Maximize Browser Window
-  Set Selenium Speed        0.5
+  Set Selenium Speed                            1
 
 Permitir todos os cookies
   sleep             5
@@ -40,8 +42,10 @@ Selecionar a opção “Pacotes”
 
 Buscar Buenos Aires e clicar em “Pesquisar”
   Input Text        ${CAMPO_PESQUISA}           ${CIDADE}   
+  Click Element     ${BOTAO_PESQUISA}
 
 Selecionar pacote de viagem
+  Click Element     ${PACOTE}
   Click Element     ${PACOTE}
   sleep             5
   Switch Window     NEW

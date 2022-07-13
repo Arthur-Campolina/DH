@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.2 on win32)" generated="20220712 23:03:19.588" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.2 on win32)" generated="20220713 20:16:34.712" rpa="false" schemaversion="3">
 <suite id="s1" name="Hurb" source="C:\Users\arthu\OneDrive\Área de Trabalho\ws_pessoal\DH\CTD\Quarto Bimestre\Testing I\checkpointII\Hurb.robot">
 <test id="s1-t1" name="Processo de reserva de pacote de viagens" line="7">
 <kw name="Acessar o site" library="Hurb">
@@ -7,88 +7,150 @@
 <arg>${SITE}</arg>
 <arg>${NAVEGADOR}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220712 23:03:20.689" level="INFO">Opening browser 'Chrome' to base url 'https://hurb.com/br'.</msg>
-<status status="PASS" starttime="20220712 23:03:20.687" endtime="20220712 23:03:30.656"/>
+<msg timestamp="20220713 20:16:35.585" level="INFO">Opening browser 'Chrome' to base url 'https://hurb.com/br'.</msg>
+<status status="PASS" starttime="20220713 20:16:35.584" endtime="20220713 20:16:44.081"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220713 20:16:49.094" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220713 20:16:44.082" endtime="20220713 20:16:49.094"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220712 23:03:30.656" endtime="20220712 23:03:30.874"/>
+<status status="PASS" starttime="20220713 20:16:49.095" endtime="20220713 20:16:49.272"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
-<arg>0.5</arg>
+<arg>1</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20220712 23:03:30.874" endtime="20220712 23:03:30.875"/>
+<status status="PASS" starttime="20220713 20:16:49.272" endtime="20220713 20:16:49.273"/>
 </kw>
-<status status="PASS" starttime="20220712 23:03:20.686" endtime="20220712 23:03:30.876"/>
+<status status="PASS" starttime="20220713 20:16:35.582" endtime="20220713 20:16:49.274"/>
 </kw>
 <kw name="Permitir todos os cookies" library="Hurb">
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220712 23:03:35.889" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20220712 23:03:30.880" endtime="20220712 23:03:35.889"/>
+<msg timestamp="20220713 20:16:54.280" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220713 20:16:49.276" endtime="20220713 20:16:54.280"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${BOTAO_COKIES}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220712 23:03:35.893" level="INFO">Clicking element 'css=#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll'.</msg>
-<status status="PASS" starttime="20220712 23:03:35.890" endtime="20220712 23:03:37.121"/>
+<msg timestamp="20220713 20:16:54.284" level="INFO">Clicking element 'css=#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll'.</msg>
+<status status="PASS" starttime="20220713 20:16:54.281" endtime="20220713 20:16:56.511"/>
 </kw>
-<status status="PASS" starttime="20220712 23:03:30.878" endtime="20220712 23:03:37.122"/>
+<status status="PASS" starttime="20220713 20:16:49.275" endtime="20220713 20:16:56.512"/>
 </kw>
 <kw name="Selecionar a opção “Pacotes”" library="Hurb">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${BOTAO_PACOTES}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220712 23:03:37.125" level="INFO">Clicking element 'xpath=//*[@id="__next"]/div[1]/div[2]/div/div/div[1]/div/div/button[2]'.</msg>
-<status status="PASS" starttime="20220712 23:03:37.124" endtime="20220712 23:03:38.660"/>
+<msg timestamp="20220713 20:16:56.519" level="INFO">Clicking element 'xpath=//*[@id="__next"]/div[1]/div[2]/div/div/div[1]/div/div/button[2]'.</msg>
+<status status="PASS" starttime="20220713 20:16:56.517" endtime="20220713 20:16:59.087"/>
 </kw>
-<status status="PASS" starttime="20220712 23:03:37.123" endtime="20220712 23:03:38.661"/>
+<status status="PASS" starttime="20220713 20:16:56.515" endtime="20220713 20:16:59.088"/>
 </kw>
 <kw name="Buscar Buenos Aires e clicar em “Pesquisar”" library="Hurb">
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${CAMPO_PESQUISA}</arg>
 <arg>${CIDADE}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220712 23:03:38.665" level="INFO">Typing text 'Buenos Aires' into text field 'css=#destination-input'.</msg>
-<status status="PASS" starttime="20220712 23:03:38.663" endtime="20220712 23:03:40.884"/>
+<msg timestamp="20220713 20:16:59.091" level="INFO">Typing text 'Buenos Aires' into text field 'css=#destination-input'.</msg>
+<status status="PASS" starttime="20220713 20:16:59.090" endtime="20220713 20:17:02.893"/>
 </kw>
-<status status="PASS" starttime="20220712 23:03:38.662" endtime="20220712 23:03:40.885"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${BOTAO_PESQUISA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220713 20:17:02.896" level="INFO">Clicking element 'xpath=//*[@id="__next"]/div[1]/div[2]/div/div/div[2]/button'.</msg>
+<msg timestamp="20220713 20:17:12.777" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220713 20:17:12.779" level="FAIL">WebDriverException: Message: unknown error: cannot determine loading status
+from unknown error: unexpected command response
+  (Session info: chrome=103.0.5060.114)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00AA6463+2188387]
+	Ordinal0 [0x00A3E461+1762401]
+	Ordinal0 [0x00953D78+802168]
+	Ordinal0 [0x00947210+750096]
+	Ordinal0 [0x0094675A+747354]
+	Ordinal0 [0x00945D3F+744767]
+	Ordinal0 [0x00944C28+740392]
+	Ordinal0 [0x00945228+741928]
+	Ordinal0 [0x0094EF2F+782127]
+	Ordinal0 [0x00959FBB+827323]
+	Ordinal0 [0x0095D310+840464]
+	Ordinal0 [0x009454F6+742646]
+	Ordinal0 [0x00959BF3+826355]
+	Ordinal0 [0x009ACF6D+1167213]
+	Ordinal0 [0x0099C5F6+1099254]
+	Ordinal0 [0x00976BE0+945120]
+	Ordinal0 [0x00977AD6+948950]
+	GetHandleVerifier [0x00D471F2+2712546]
+	GetHandleVerifier [0x00D3886D+2652765]
+	GetHandleVerifier [0x00B3002A+520730]
+	GetHandleVerifier [0x00B2EE06+516086]
+	Ordinal0 [0x00A4468B+1787531]
+	Ordinal0 [0x00A48E88+1805960]
+	Ordinal0 [0x00A48F75+1806197]
+	Ordinal0 [0x00A51DF1+1842673]
+	BaseThreadInitThunk [0x773AFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77807A9E+286]
+	RtlGetAppContainerNamedObjectPath [0x77807A6E+238]
+</msg>
+<status status="FAIL" starttime="20220713 20:17:02.894" endtime="20220713 20:17:12.787"/>
+</kw>
+<status status="FAIL" starttime="20220713 20:16:59.089" endtime="20220713 20:17:12.789"/>
 </kw>
 <kw name="Selecionar pacote de viagem" library="Hurb">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${PACOTE}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220712 23:03:40.889" level="INFO">Clicking element 'css=#h-1pez0jj'.</msg>
-<msg timestamp="20220712 23:03:43.471" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20220712 23:03:43.473" level="FAIL">Element with locator 'css=#h-1pez0jj' not found.</msg>
-<status status="FAIL" starttime="20220712 23:03:40.888" endtime="20220712 23:03:43.478"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>5</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20220712 23:03:43.479" endtime="20220712 23:03:43.480"/>
-</kw>
-<kw name="Switch Window" library="SeleniumLibrary">
-<arg>NEW</arg>
-<doc>Switches to browser window matching ``locator``.</doc>
-<status status="NOT RUN" starttime="20220712 23:03:43.480" endtime="20220712 23:03:43.480"/>
-</kw>
-<status status="FAIL" starttime="20220712 23:03:40.886" endtime="20220712 23:03:43.482"/>
+<status status="NOT RUN" starttime="20220713 20:17:12.792" endtime="20220713 20:17:12.792"/>
 </kw>
 <kw name="Escolher pacote" library="Hurb">
-<status status="NOT RUN" starttime="20220712 23:03:43.484" endtime="20220712 23:03:43.484"/>
+<status status="NOT RUN" starttime="20220713 20:17:12.793" endtime="20220713 20:17:12.793"/>
 </kw>
 <kw name="Pagina pagamento" library="Hurb">
-<status status="NOT RUN" starttime="20220712 23:03:43.485" endtime="20220712 23:03:43.485"/>
+<status status="NOT RUN" starttime="20220713 20:17:12.795" endtime="20220713 20:17:12.795"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220712 23:03:43.488" endtime="20220712 23:03:46.941"/>
+<status status="PASS" starttime="20220713 20:17:12.797" endtime="20220713 20:17:16.170"/>
 </kw>
-<status status="FAIL" starttime="20220712 23:03:20.682" endtime="20220712 23:03:46.944">Element with locator 'css=#h-1pez0jj' not found.</status>
+<status status="FAIL" starttime="20220713 20:16:35.579" endtime="20220713 20:17:16.171">WebDriverException: Message: unknown error: cannot determine loading status
+from unknown error: unexpected command response
+  (Session info: chrome=103.0.5060.114)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00AA6463+2188387]
+	Ordinal0 [0x00A3E461+1762401]
+	Ordinal0 [0x00953D78+802168]
+	Ordinal0 [0x00947210+750096]
+	Ordinal0 [0x0094675A+747354]
+	Ordinal0 [0x00945D3F+744767]
+	Ordinal0 [0x00944C28+740392]
+	Ordinal0 [0x00945228+741928]
+	Ordinal0 [0x0094EF2F+782127]
+	Ordinal0 [0x00959FBB+827323]
+	Ordinal0 [0x0095D310+840464]
+	Ordinal0 [0x009454F6+742646]
+	Ordinal0 [0x00959BF3+826355]
+	Ordinal0 [0x009ACF6D+1167213]
+	Ordinal0 [0x0099C5F6+1099254]
+	Ordinal0 [0x00976BE0+945120]
+	Ordinal0 [0x00977AD6+948950]
+	GetHandleVerifier [0x00D471F2+2712546]
+	GetHandleVerifier [0x00D3886D+2652765]
+	GetHandleVerifier [0x00B3002A+520730]
+	GetHandleVerifier [0x00B2EE06+516086]
+	Ordinal0 [0x00A4468B+1787531]
+	Ordinal0 [0x00A48E88+1805960]
+	Ordinal0 [0x00A48F75+1806197]
+	Ordinal0 [0x00A51DF1+1842673]
+	BaseThreadInitThunk [0x773AFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77807A9E+286]
+	RtlGetAppContainerNamedObjectPath [0x77807A6E+238]
+</status>
 </test>
-<status status="FAIL" starttime="20220712 23:03:19.594" endtime="20220712 23:03:46.950"/>
+<status status="FAIL" starttime="20220713 20:16:34.718" endtime="20220713 20:17:16.193"/>
 </suite>
 <statistics>
 <total>
