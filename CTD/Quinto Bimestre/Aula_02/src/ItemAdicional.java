@@ -1,9 +1,9 @@
-public class ItensAdicionais {
+public class ItemAdicional {
 
     private String nome;
     private double preco;
 
-    public ItensAdicionais(String nome, double preco) {
+    public ItemAdicional(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
     }
@@ -26,7 +26,7 @@ public class ItensAdicionais {
 
     @Override
     public String toString() {
-        return "ItensAdicionais{" +
+        return "ItemAdicional{" +
                 "nome='" + nome + '\'' +
                 ", preco=" + preco +
                 '}';
