@@ -28,7 +28,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:h2:tcp//localhost/~/test", "sa", "");
+            connection = getConnection();
             Statement statement = connection.createStatement();
 
             statement.execute(sqlCreateTable);
@@ -42,7 +42,7 @@ public class Main {
             logger.info("Excluido o usuário com o ID 2");
             logger.debug("Debug");
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
                 e.printStackTrace();
         } finally {
             if(connection == null) {
@@ -56,6 +56,4 @@ public class Main {
         Class.forName("org.h2.driver").newInstance();
         return DriverManager.getConnection("jdbc:h2:tcp//localhost/~/test", "sa", "");
     }
-
-
 }
