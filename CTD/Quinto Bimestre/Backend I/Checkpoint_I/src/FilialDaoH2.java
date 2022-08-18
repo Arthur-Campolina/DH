@@ -20,7 +20,8 @@ public class FilialDaoH2 implements IDao<Filial>{
         log.info("Registrando uma nova filial: " + filial.toString());
         Connection connection = configuracaoJDBC.conectarComBancoDeDados();
         Statement statement = null;
-        String query = String.format("INSERT INTO Filial VALUES ('%s','%s','%s','%s','%s','%s')",
+        String query = String.format("INSERT INTO FILIAIS (nome, rua, numero, cidade, estado, e5estrelas) VALUES ( '%s','%s','%s','%s','%s','%s')",
+
                 filial.getNome(),filial.getRua(), filial.getNumero(), filial.getCidade(), filial.getEstado(), filial.getE5estrelas());
         try{
             statement = connection.createStatement();
