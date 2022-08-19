@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f5655ae-cd00-4710-95de-a8e2f1c6ee4c" name="Changes" comment="" />
+    <list default="true" id="2f5655ae-cd00-4710-95de-a8e2f1c6ee4c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Checkpoint_I.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Checkpoint_I.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Checkpoint_I/ConfiguracaoJDBC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Checkpoint_I/Filial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Checkpoint_I/FilialDaoH2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Checkpoint_I/FilialService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Checkpoint_I/FilialServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Checkpoint_I/IDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConfiguracaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ConfiguracaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Filial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Filial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FilialDaoH2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FilialDaoH2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FilialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FilialService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FilialServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FilialServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IDao.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +64,9 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
