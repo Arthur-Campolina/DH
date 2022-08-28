@@ -2,8 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/mesa2" />
-    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
+    <content url="file://$MODULE_DIR$/mesa" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
