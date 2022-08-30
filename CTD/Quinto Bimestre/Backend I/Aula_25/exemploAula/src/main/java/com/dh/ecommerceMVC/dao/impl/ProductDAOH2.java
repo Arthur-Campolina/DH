@@ -31,7 +31,7 @@ public class ProductDAOH2 implements Idao<Product> {
         Connection connection = null;
         try {
             log.info("Saving product" + product.getName());
-            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:~/ecommerce;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
+            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:mem:testdb;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
             connection = configJDBC.getConnection();
             Statement statement = connection.createStatement();
             statement.execute(sqlInsert, Statement.RETURN_GENERATED_KEYS);
@@ -56,7 +56,7 @@ public class ProductDAOH2 implements Idao<Product> {
         String sqlSelect = "SELECT * FROM PRODUCTS";
         List<Product> products = new ArrayList<>();
         try {
-            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:~/ecommerce;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
+            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:mem:testdb;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
             connection = configJDBC.getConnection();
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlSelect);
@@ -81,7 +81,7 @@ public class ProductDAOH2 implements Idao<Product> {
         String sqlUpdate = String.format("UPDATE PRODUCTS SET PRICE = '%S' WHERE ID = '%S';", product.getPrice(), product.getId());
         try {
             log.info("Updating product's price");
-            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:~/ecommerce;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
+            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:mem:testdb;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
             connection = configJDBC.getConnection();
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlUpdate);
@@ -103,7 +103,7 @@ public class ProductDAOH2 implements Idao<Product> {
         String sqlSelectById = String.format("SELECT * FROM PRODUCTS WHERE ID = %S", id);
         try {
             log.info("Getting product by ID");
-            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:~/ecommerce;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
+            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:mem:testdb;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
             connection = configJDBC.getConnection();
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sqlSelectById);
@@ -127,7 +127,7 @@ public class ProductDAOH2 implements Idao<Product> {
         String sqlDelete = String.format("DELETE FROM PRODUCTS WHERE ID = %s", id);
         try {
             log.info("Deleting product");
-            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:~/ecommerce;" + "INIT=RUNSCRIPT FROM 'create,sql'", "sa", "");
+            configJDBC = new ConfigJDBC("org.h2.Driver", "jdbc:h2:mem:testdb;" + "INIT=RUNSCRIPT FROM 'create.sql'", "sa", "");
             connection = configJDBC.getConnection();
             Statement statement = connection.createStatement();
             statement.executeQuery(sqlDelete);
