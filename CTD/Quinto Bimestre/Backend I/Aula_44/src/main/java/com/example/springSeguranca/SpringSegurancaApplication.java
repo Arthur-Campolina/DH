@@ -1,13 +1,13 @@
-package com.dh.aula_30;
+package com.example.springSeguranca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Aula30Application {
+public class SpringSegurancaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Aula30Application.class, args);
+		SpringApplication.run(SpringSegurancaApplication.class, args);
 	}
 
 }
