@@ -1,7 +1,13 @@
 import { useState } from 'react'
+import Hello from './Hello'
 
-const App = ({ person }) => {
-  const { name, surname, age } = person
+const person = {
+  name: 'Arthur',
+  surname: 'Campolina',
+  age: 32
+}
+
+const App = () => {
   const [count, setCount] = useState(0)
   const [render, setRender] = useState(false)
   const buttonHandler = () => {
@@ -11,9 +17,7 @@ const App = ({ person }) => {
   return (
     <>
       <div>
-        <p>
-          Ola, {name} {surname}! Você tem {age} anos
-        </p>
+        <Hello person={person} />
       </div>
       <button onClick={buttonHandler}>Click</button>
       {render &&
