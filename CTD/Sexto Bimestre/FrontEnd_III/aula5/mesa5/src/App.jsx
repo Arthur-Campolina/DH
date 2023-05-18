@@ -13,7 +13,6 @@ function App() {
             image={produto.image}
             key={produto.nome}
           />)
-
         })
         }
       </ul>

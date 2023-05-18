@@ -27,4 +27,4 @@ Resources:
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
       VersioningConfiguration:
-        Status: Enabled
+        Status: Suspended
