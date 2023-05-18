@@ -1,8 +1,6 @@
 import React from 'react';
-
 import City from './City';
 
-/* Componente do tipo funcional */
 function HomeComponent(props) {
     return (<div>
         {props.items.map((itemIteracao) => {
