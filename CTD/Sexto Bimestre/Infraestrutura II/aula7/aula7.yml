@@ -1,0 +1,39 @@
+---
+- name: "Playbook para criar securityGroup & EC2"
+  hosts: localhost
+  gather_facts: yes
+
+  vars:
+    keipair_name: <seu-nome>-digitalhouse
+    my_vpc_id: vpc-0f80a10b21922c3d2
+    subnet_id: rtb-0e7219372182705d9
+    my_ami_id: ami-04b3c23ec8efcc2d6
+    my_region: sa-east-1
+    ansible_python_interpreter: /usr/bin/python3
+    AWS_access_key: ""
+    AWS_secret_key: ""
+
+  tasks:
+    - name: "Criar o Security Group WEB - 80 e 443"
+      ec2_group:
+        name: dh-arthurcampolina-220523
+        description: an example EC2 group
+        vpc_id: "{{ my_vpc_id }}"
+        region: "{{ my_region }}"
+        aws_secret_key: "{{ AWS_secret_key }}"
+        aws_access_key: "{{ AWS_access_key }}"
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+          - proto: tcp
+            from_port: 443
+            to_port: 443
+            cidr_ip: 0.0.0.0/0
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: 0.0.0.0/0
+
+    # - name: "Criar a EC2"
