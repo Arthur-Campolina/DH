@@ -13,7 +13,7 @@ export const ButtonState = ({ title }) => {
         <div>
             <button onClick={onClickHandler}>{title}</button>
             <ul>
-                {array.map((v) => <li key={v}>Aqui está o valor {v === 0 ? 'do primeiro click' : `do click ${v}`} : <strong>{v}</strong></li>)}
+                {array.map((v) => <li key={v}>Aqui está o valor {v === 0 ? 'inicial' : `do click ${v}`} : <strong>{v}</strong></li>)}
             </ul>
         </div>
     );
