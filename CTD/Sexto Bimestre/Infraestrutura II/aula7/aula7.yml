@@ -4,19 +4,19 @@
   gather_facts: yes
 
   vars:
-    keipair_name: <seu-nome>-digitalhouse
+    keypair_name: dh-bgsouza
     my_vpc_id: vpc-0f80a10b21922c3d2
-    subnet_id: rtb-0e7219372182705d9
-    my_ami_id: ami-04b3c23ec8efcc2d6
+    subnet_id: subnet-0841b8ac408b71c72
+    my_ami_id: ami-0af6e9042ea5a4e3e
     my_region: sa-east-1
     ansible_python_interpreter: /usr/bin/python3
-    AWS_access_key: ""
-    AWS_secret_key: ""
+    AWS_access_key: "AKIAV4YTWNKPPQHGJBBX"
+    AWS_secret_key: "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"
 
   tasks:
     - name: "Criar o Security Group WEB - 80 e 443"
       ec2_group:
-        name: dh-arthurcampolina-220523
+        name: dh-bgsouza-220523
         description: an example EC2 group
         vpc_id: "{{ my_vpc_id }}"
         region: "{{ my_region }}"
@@ -36,4 +36,26 @@
             to_port: 22
             cidr_ip: 0.0.0.0/0
 
-    # - name: "Criar a EC2"
+    - name: "Criar a EC2 com a SG: dh-bgsouza-220523"
+      ec2:
+        id: dh-arthurcampolina-240523
+        region: "{{ my_region }}"
+        group: "dh-bgsouza-220523"
+        instance_type: "t2.micro"
+        image: "{{ my_ami_id }}"
+        aws_access_key: "{{ AWS_access_key }}"
+        aws_secret_key: "{{ AWS_secret_key }}"
+        wait: yes
+        wait_timeout: 500
+        volumes:
+          - device_name: "/dev/xvda"
+            volume_type: "gp2"
+            volume_size: 8
+        vpc_subnet_id: "{{ subnet_id }}"
+        assign_public_ip: yes
+        key_name: "{{ keypair_name }}"
+      register: info
+
+    - name: "IP público do servidor"
+      debug:
+        var: ec2_create
