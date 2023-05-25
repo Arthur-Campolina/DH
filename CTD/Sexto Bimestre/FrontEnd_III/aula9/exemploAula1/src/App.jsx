@@ -1,11 +1,11 @@
 import './App.css'
 import React from 'react'
-import { ButtonState } from './components/ButtonState'
+import { MyForm } from './components/MyForm'
 
 function App() {
   return (
     <>
-      <ButtonState title={"Click"} />
+      <MyForm title={'Formulário'} />
     </>
   )
 }
