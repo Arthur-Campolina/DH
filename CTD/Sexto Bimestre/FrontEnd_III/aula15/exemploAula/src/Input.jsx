@@ -16,7 +16,6 @@ function Input({ title, type, value, fnOnChange, fnOnKeyUp }) {
                 onChange={fnOnChange}
                 onKeyUp={fnOnKeyUp}
             />
-
         </div>
     );
 }

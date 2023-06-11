@@ -1,45 +1,91 @@
-import React from "react";
+import React, { useCallback } from "react";
 import axios from 'axios'
+
 import './App.css';
-import ProductList from "./ProductList";
 import Input from "./Input";
+import style from "./ProductList.module.css"
+import MyCard from "./MyCard";
 
 function App() {
+  const [id, setId] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [stock, setStock] = React.useState("");
   const [category, setCategory] = React.useState("");
   const [image, setImage] = React.useState("");
-  const [isValid, setIsValid] = React.useState(false)
-  const formValidator = () => {
-    if (title, description, price, stock, category, image) {
-      setIsValid(!isValid)
+  const [isInValid, setIsInValid] = React.useState(true)
+  const [products, setProducts] = React.useState([])
+  React.useEffect(() => {
+    getProducts()
+  }, [])
+  async function getProducts() {
+    try {
+      const response = await axios.get("api/products")
+      setProducts(response.data.products)
+      console.log(products)
+    } catch (error) {
+      console.error("Error:", error)
     }
   }
-  const creatProduct = async (event) => {
-    event.preventDefault()
-    const newProduct = {
-      title,
-      description,
-      price,
-      stock,
-      category,
-      image,
+  const formValidator = useCallback(() => {
+    if (!!title && !!description && !!price && !!stock && !!category && !!image) {
+      setIsInValid(false)
+    } else {
+      setIsInValid(true)
     }
-    try {
-      const response = await axios.post('api/products', newProduct)
-    } catch (error) {
-      console.error("Error", error)
+  }, [title, description, price, stock, category, image])
+  const creatOrUpdateProduct = async (event) => {
+    event.preventDefault()
+    if (id) {
+      const updatedProduct = {
+        title,
+        description,
+        price,
+        stock,
+        category,
+        image,
+      }
+      try {
+        await axios.put(`api/products/${id}`, updatedProduct)
+        getProducts()
+        alert("Produto Atualizado!")
+      } catch (error) {
+        console.error("Error", error)
+      }
+    }
+    if (!id) {
+      const newProduct = {
+        title,
+        description,
+        price,
+        stock,
+        category,
+        image,
+      }
+      try {
+        await axios.post('api/products', newProduct)
+        alert("Produto Criado!")
+        getProducts()
+      } catch (error) {
+        console.error("Error", error)
+      }
     }
   }
 
   return (
     <>
-      <h2>Cadastre seu produto</h2>
+      <h2>Cadastre/Atualize seu produto</h2>
       <form>
         <Input
-          title="Título"
+          title="ID"
+          type="text"
+          value={id}
+          fnOnChange={(e) => setId(e.target.value)}
+        />
+        <br />
+        <Input
+          title="Título*"
           type="text"
           value={title}
           fnOnChange={(e) => setTitle(e.target.value)}
@@ -47,7 +93,7 @@ function App() {
         />
         <br />
         <Input
-          title="Descrição"
+          title="Descrição*"
           type="text"
           value={description}
           fnOnChange={(e) => setDescription(e.target.value)}
@@ -55,7 +101,7 @@ function App() {
         />
         <br />
         <Input
-          title="Preço"
+          title="Preço*"
           type="text"
           value={price}
           fnOnChange={(e) => setPrice(e.target.value)}
@@ -63,7 +109,7 @@ function App() {
         />
         <br />
         <Input
-          title="Estoque"
+          title="Estoque*"
           type="text"
           value={stock}
           fnOnChange={(e) => setStock(e.target.value)}
@@ -71,7 +117,7 @@ function App() {
         />
         <br />
         <Input
-          title="Categoria"
+          title="Categoria*"
           type="text"
           value={category}
           fnOnChange={(e) => setCategory(e.target.value)}
@@ -79,7 +125,7 @@ function App() {
         />
         <br />
         <Input
-          title="IMG Url"
+          title="IMG Url*"
           type="text"
           value={image}
           fnOnChange={(e) => setImage(e.target.value)}
@@ -87,13 +133,28 @@ function App() {
         />
         <br />
         <button
-          disabled={isValid}
-          onClick={creatProduct}>
-          Cadastrar
+          disabled={isInValid}
+          onClick={creatOrUpdateProduct}>
+          Cadastrar/Atualizar
         </button>
+        <h6 style={{ color: "red" }}>* Obrigatório</h6>
       </form>
       <h2>Lista de produtos</h2>
-      <ProductList />
+      <div className={style.div}>
+        {products.map(product => (
+          <MyCard
+            key={product.id}
+            category={product.category}
+            description={product.description}
+            id={product.id}
+            image={product.image}
+            price={product.price}
+            stock={product.stock}
+            title={product.title}
+            fnGetProducts={getProducts}
+          />))
+        }
+      </div>
     </>
   );
 }
