@@ -52,6 +52,7 @@ function App() {
         alert("Produto Atualizado!")
       } catch (error) {
         console.error("Error", error)
+        alert("Erro: Produto não econtrado!")
       }
     }
     if (!id) {
