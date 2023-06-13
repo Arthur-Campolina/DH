@@ -14,9 +14,7 @@ function App() {
   const [sumGradesDO, setSumGradesDO] = React.useState(0)
   const [subject, setSubject] = React.useState("")
   const [grade, setGrade] = React.useState(0)
-  console.log("GRADE", grade)
-  console.log("SUM", sumGradesBD)
-  console.log("STUDENTS", qtdStudentsBD)
+
   function handleSubmit(event) {
     event.preventDefault();
     if (subject === "database") {
