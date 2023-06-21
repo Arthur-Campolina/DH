@@ -1,97 +1,72 @@
 import './App.css'
 import React from 'react'
-import LanguageContext, { languages } from './contexts/context';
-import Navbar from './components/Navbar';
-import Body from './components/Body';
+
+const initialStudents = [
+  {
+    id: 1,
+    nome: "Arthur",
+    sobrenome: "Campolina"
+  },
+  {
+    id: 2,
+    nome: "Leonardo",
+    sobrenome: "Almeida"
+  },
+  {
+    id: 3,
+    nome: "Cauê",
+    sobrenome: "Silveira"
+  },
+  {
+    id: 4,
+    nome: "Filipe",
+    sobrenome: "Rodrigues"
+  }
+]
+
+const reducer = (state, action) => {
+  console.log(state, action)
+  switch (action.type) {
+    case "DELETE":
+      const newStudentsArray = state.filter((student) => student.id !== action.id)
+      return newStudentsArray
+    case "LOCALSTORAGE-STATE":
+      return action.payload
+    default:
+      return state
+  }
+}
 
 function App() {
-
-  function languageReducer(state, action) {
-    switch (action.type) {
-      case "PTBR":
-        return action.payload
-      case "EN":
-        return action.payload
-      default:
-        return state
-    }
-  }
-  const [language, dispatch] = React.useReducer(languageReducer, languages.english)
-  const handleChangeLA = () => {
+  const [students, dispatch] = React.useReducer(reducer, initialStudents)
+  const deleteHandler = (id) => {
     dispatch({
-      type: language.id === "EN" ? "PTBR" : "EN",
-      payload: language.id === "EN" ? languages.portuguese : languages.english
-    })
-  }
-
-  const cards = [
-    {
-      id: 1,
-      title: "Oi",
-      description: "Você"
-    },
-    {
-      id: 2,
-      title: "Oi",
-      description: "Você"
-    },
-    {
-      id: 3,
-      title: "Oi",
-      description: "Você"
-    }
-  ]
-
-  const [languageCards, dispatch2] = React.useReducer(cardReducer, cards)
-  const handleDelete = (id) => {
-    dispatch2({
       type: "DELETE",
-      payload: id
+      id: id
     })
   }
-
-  function cardReducer(state, action) {
-    const id = state
-    if (action = "DELETE") {
-      const newArray = languageCards.filter((card) => card.id !== id)
-      return newArray
-    }
-  }
-
-
   React.useEffect(() => {
-    const languageStorage = localStorage.getItem("language")
-    const cardsStorage = localStorage.getItem("cards")
-    if (languageStorage) {
+    const localStorageStudents = localStorage.getItem("students")
+    if (localStorageStudents) {
+      const parsedData = JSON.parse(localStorageStudents)
       dispatch({
-        type: languageStorage,
-        payload: languageStorage === "EN" ? languages.english : languages.portuguese
-      })
-    }
-    if (cardsStorage) {
-      dispatch({
-        type: "cards",
-        payload: JSON.parse(cardsStorage)
+        type: "LOCALSTORAGE-STATE",
+        students: parsedData
       })
     }
   }, [])
   React.useEffect(() => {
-    localStorage.setItem("language", language.id)
-    localStorage.setItem("cards", JSON.stringify(languageCards))
-  }, [language])
-
+    localStorage.setItem("students", JSON.stringify(students))
+  }, [students])
   return (
     <div className="App">
-      <>
-        <LanguageContext.Provider value={{ language, handleChangeLA, languageCards }}>
-          <Navbar />
-          <Body />
-        </LanguageContext.Provider>
-        <footer>
-          <h1>Leonardo Almeida, Cauê Silveira, Felipe Rodrigues e Arthur Campolina</h1>
-        </footer>
-        <button onClick={handleDelete}>Delete</button>
-      </>
+      {students.map((student) => (
+        <div key={student.id}>
+          <h1>{student.nome}</h1>
+          <h2>{student.sobrenome}</h2>
+          <button onClick={() => deleteHandler(student.id)}>Delete</button>
+        </div>
+      ))}
     </div>
   )
 }
