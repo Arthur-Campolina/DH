@@ -51,7 +51,7 @@ function App() {
       const parsedData = JSON.parse(localStorageStudents)
       dispatch({
         type: "LOCALSTORAGE-STATE",
-        students: parsedData
+        payload: parsedData
       })
     }
   }, [])
